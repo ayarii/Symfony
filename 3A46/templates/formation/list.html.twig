@@ -1,0 +1,38 @@
+<ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ path('contactFunction') }}">Contact</a></li>
+     <li ><a href="{{ path('formationlist') }}">Formation</a></li>
+</ul>
+<h1>La liste des formations</h1>
+<img src="{{ asset('images/tunisie.png') }}" alt="tunisie" height="100" width="50">
+<table border="1">
+    <tr>
+        <td>Ref</td>
+        <td>Titre</td>
+        <td>Desc</td>
+        <td>DD</td>
+        <td>NP</td>
+
+    </tr>
+    {% if listFormations is empty %}
+    <h5>pas de formation</h5>
+    {% else %}
+    {% for f in listFormations %}
+    <tr>
+        <td>{{ f.ref }}</td>
+        <td>{{ f.Titre|upper }}</td>
+        <td>{{ f.Description }}</td>
+        <td>{{ f.date_debut }}</td>
+        <td>
+
+            {% if f.nb_participants ==0 %}
+             <h6>complet</h6>
+            {% else %}
+            {{ f.nb_participants }}
+            {% endif %}
+                </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+Nbr de formation: {{ listFormations|length }}

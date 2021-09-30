@@ -1,0 +1,41 @@
+
+<ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="{{ path('contact') }}">contact</a></li>
+    <li><a href="{{ path('formationList') }}">Formation</a></li>
+</ul>
+<h1>Liste des formations</h1>
+<img src="{{ asset('images/tunisie.png') }}" height="100" width="50">
+{% if tabFormation is empty %}
+<h6>Pas de formation</h6>
+{% else %}
+<table border="2">
+    <tr>
+        <td>Ref</td>
+        <td>Titre</td>
+        <td>Description</td>
+        <td>DD</td>
+        <td>DF</td>
+        <td>NP</td>
+    </tr>
+
+    {% for f in tabFormation %}
+    <tr>
+        <td>{{ f.ref }}</td>
+        <td>{{ f.Titre|upper }}</td>
+        <td>{{ f.Description }}</td>
+        <td>{{ f.date_debut }}</td>
+        <td>{{ f.date_fin }}</td>
+        <td>
+             {% if f.nb_participants == 0%}
+             <h6>complet</h6>
+            {% else %}
+            {{ f.nb_participants }}
+            {% endif %}
+            </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+NB-formation: {{ tabFormation|length }}
+

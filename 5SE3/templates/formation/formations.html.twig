@@ -1,0 +1,47 @@
+<h1> welcome de formation contdoller</h1>
+
+{% if tabFormation is empty %}
+    <h3>Pas de formations</h3>
+{% else %}
+    <table border="1">
+        <thead>
+        <th>Ref</th>
+        <th>titde</th>
+        <th>Description</th>
+        <th>D D</th>
+        <th>D F</th>
+        <th>N-P</th>
+        </thead>
+        <tbody>
+        {% for formation in tabFormation %}
+        <tr>
+            <td>
+                {{ formation.ref }}
+            </td>
+            <td>
+                {{ formation.Titre | upper }}
+            </td>
+            <td>
+                {{ formation.Description }}
+            </td>
+            <td>
+                {{ formation.date_debut }}
+            </td>
+            <td>
+                {{ formation.date_fin }}
+            </td>
+            <td>
+                {% if formation.nb_participants == 0 %}
+                    <p>complet</p>
+                {% else %}
+                    {{ formation.nb_participants }}
+                {% endif %}
+            </td>
+        </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+{% endif %}
+<p> le nombre de formation: &nbsp; {{ tabFormation |length }}</p>
+{# asset() pour ajouter le path de l'image directement#}
+<img src="{{ asset('images/creation-organisme-formation-1.jpeg') }}" alt="formation">

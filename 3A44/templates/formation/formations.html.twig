@@ -1,0 +1,39 @@
+<h1>La liste des formations</h1>
+{#{{ var }}
+{{ var2 }}#}
+<a href="#">Home Page</a>
+<a href="{{ path('second') }}">Contact</a>
+<a href="{{ path('formationAction') }}">Formation</a>
+<img src="{{ asset('Pictures/formation.jpeg') }}" alt="formation" height="100" width="100">
+{% if tabFormation is empty %}
+    <h5>Pas de formation pour le moment</h5>
+{% else %}
+    <table border="1">
+        <tr>
+            <td>REF</td>
+            <td>Titre</td>
+            <td>Description</td>
+            <td>DD</td>
+            <td>DF</td>
+            <td>NP</td>
+        </tr>
+
+        {% for i in tabFormation %}
+            <tr>
+                <td>{{ i.ref }}</td>
+                <td>{{ i.Titre|upper }}</td>
+                <td>{{ i.Description }}</td>
+                <td>{{ i.date_debut }}</td>
+                <td>{{ i.date_fin }}</td>
+                <td>
+                    {% if i.nb_participants == 0 %}
+                        <h6 style="color: red"><a href="{{ path('formationDetail') }}">Participer</a></h6>
+                    {% else %}
+                        {{ i.nb_participants }}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+Nbr de formations = {{ tabFormation|length }}

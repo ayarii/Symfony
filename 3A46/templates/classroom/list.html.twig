@@ -1,0 +1,17 @@
+<h1>Classroom</h1>
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>Description</td>
+        <td>Enabled</td>
+    </tr>
+     {% for i in tabclass %}
+      <tr>
+          <td>{{ i.id }}</td>
+          <td>{{ i.title }}</td>
+          <td>{{ i.description }}</td>
+          <td>{{ i.enabled }}</td>
+      </tr>
+    {% endfor %}
+</table>

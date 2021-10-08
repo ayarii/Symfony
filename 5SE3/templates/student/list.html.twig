@@ -1,0 +1,8 @@
+<h1>La liste des étudiants</h1>
+{% for student in tabStudents %}
+    NCE: {{ student.nce }}/
+    Username: {{ student.username }}/
+    Email: {{ student.email}}
+    <a href="#">Show More</a>
+    <br>
+{% endfor %}

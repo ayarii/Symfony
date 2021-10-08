@@ -154,7 +154,7 @@
   <component name="ProjectId" id="1yuDljUz0IH4PYblkwD3QVV6wt2" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/Pictures" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../5SE3" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -183,7 +183,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1633092732562</updated>
-      <workItem from="1633092734224" duration="5761000" />
+      <workItem from="1633092734224" duration="6341000" />
     </task>
     <servers />
   </component>

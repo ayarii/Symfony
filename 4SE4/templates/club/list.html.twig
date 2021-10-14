@@ -1,0 +1,7 @@
+<a href="{{ path('addAction') }}">Add Club</a><br>
+{%  for c in tabClub %}
+id: {{ c.id }} / name: {{ c.name }}/description:{{ c.description }}/enabled: {{ c.enabled }}
+    <a href="{{ path('updateAction',{"id":c.id}) }}">Update</a>
+    <a href="{{ path('removeAction',{"id":c.id}) }}">Delete</a>
+<br>
+{% endfor %}

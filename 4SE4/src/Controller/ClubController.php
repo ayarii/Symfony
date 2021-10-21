@@ -91,6 +91,5 @@ class ClubController extends AbstractController
         $em->remove($club);
         $em->flush();
         return $this->redirectToRoute("list");
-
     }
 }

@@ -30,7 +30,7 @@ class Classroom
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity=Student::class, mappedBy="classroom")
+     * @ORM\OneToMany(targetEntity=Student::class, mappedBy="classroom" ,cascade={"remove"})
      */
     private $student;
 

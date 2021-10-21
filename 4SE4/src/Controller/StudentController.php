@@ -46,4 +46,15 @@ class StudentController extends AbstractController
         $students= $student->findAll();
         return $this->render("student/list.html.twig",array("students"=>$students));
     }
+
+    /**
+     * @Route("/deleteStudent/{nce}",name="deleteStudent")
+     */
+    public function remove(StudentRepository $s,$nce,EntityManagerInterface $em)
+    {
+        $student= $s->find($nce);
+        $em->remove($student);
+        $em->flush();
+        return $this->redirectToRoute("listStudent");
+    }
 }

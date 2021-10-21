@@ -3,5 +3,6 @@
     {{ s.username }}/
     {{ s.email }}/
     {{ s.classroom }}/
+    <a href="{{ path('deleteStudent',{'nce':s.nce}) }}">remove</a>
     <br>
 {% endfor %}

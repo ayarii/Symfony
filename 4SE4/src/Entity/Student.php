@@ -27,7 +27,7 @@ class Student
     private $email;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Classroom::class, inversedBy="student")
+     * @ORM\ManyToOne(targetEntity=Classroom::class, inversedBy="student",cascade={"remove"})
      */
     private $classroom;
 

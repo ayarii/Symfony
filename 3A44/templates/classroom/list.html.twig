@@ -1,0 +1,22 @@
+<h1>List Classroom</h1>
+<a  href="{{ path('classroomAdd') }}">Add Classroom</a>
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Enabled</td>
+        <td>Description</td>
+        <td>Action</td>
+    </tr>
+
+    {% for class in tabClassroom %}
+        <tr>
+            <td>{{class.id}}</td>
+            <td>{{class.name}}</td>
+            <td>{{class.enabled}}</td>
+            <td>{{class.description}}</td>
+            <td><a href="{{ path('updateClassroom',{'id':class.id}) }}">Update</a>
+                <a href="{{ path('removeClassroom',{'id':class.id}) }}">Delete</a></td>
+        </tr>
+    {% endfor %}
+</table>

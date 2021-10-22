@@ -20,19 +20,12 @@ class Classroom
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $title;
+    private $name;
 
     /**
      * @ORM\Column(type="text")
      */
     private $description;
-
-
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $nbrStudent;
 
     /**
      * @ORM\Column(type="boolean")
@@ -44,14 +37,14 @@ class Classroom
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getName(): ?string
     {
-        return $this->title;
+        return $this->name;
     }
 
-    public function setTitle(string $title): self
+    public function setName(string $name): self
     {
-        $this->title = $title;
+        $this->name = $name;
 
         return $this;
     }
@@ -68,32 +61,15 @@ class Classroom
         return $this;
     }
 
-    public function getNbrStudent(): ?int
-    {
-        return $this->nbrStudent;
-    }
-
-    public function setNbrStudent(int $nbrStudent): self
-    {
-        $this->nbrStudent = $nbrStudent;
-
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEnabled()
+    public function getEnabled(): ?bool
     {
         return $this->enabled;
     }
 
-    /**
-     * @param mixed $enabled
-     */
-    public function setEnabled($enabled): void
+    public function setEnabled(bool $enabled): self
     {
         $this->enabled = $enabled;
-    }
 
-  }
+        return $this;
+    }
+}

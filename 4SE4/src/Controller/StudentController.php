@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Student;
+use App\Form\SearchStudentType;
 use App\Form\StudentType;
 use App\Repository\StudentRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -41,10 +42,24 @@ class StudentController extends AbstractController
     /**
      * @Route("/listStudent",name="listStudent")
      */
-    public function listStudent(StudentRepository $student)
+    public function listStudent(StudentRepository $student,Request $request)
     {
         $students= $student->findAll();
-        return $this->render("student/list.html.twig",array("students"=>$students));
+        $studentsByMail= $student->orderByMail();
+        $studentsByMoyenne= $student->findExcellentStudent();
+        $formSearch= $this->createForm(SearchStudentType::class);
+         $formSearch->handleRequest($request);
+        if($formSearch->isSubmitted()){
+            $nce= $formSearch->getData();
+            $result= $student->searchStudent($nce);
+            return $this->render("student/list.html.twig",
+                array("students"=>$result,
+                    "studentsByMail"=>$studentsByMail,
+                    "searchForm"=>$formSearch->createView()
+                  ));
+
+        }
+        return $this->render("student/list.html.twig",array("students"=>$students,'studentsByMail'=>$studentsByMail,"searchForm"=>$formSearch->createView(), "studentsByMoyenne"=>$studentsByMoyenne));
     }
 
     /**
@@ -57,4 +72,5 @@ class StudentController extends AbstractController
         $em->flush();
         return $this->redirectToRoute("listStudent");
     }
+
 }

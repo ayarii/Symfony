@@ -25,7 +25,10 @@ class Student
      * @ORM\Column(type="string", length=150)
      */
     private $email;
-
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $moyenne;
     /**
      * @ORM\ManyToOne(targetEntity=Classroom::class, inversedBy="student",cascade={"remove"})
      */
@@ -85,4 +88,26 @@ class Student
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return(string)$this->getNce();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMoyenne()
+    {
+        return $this->moyenne;
+    }
+
+    /**
+     * @param mixed $moyenne
+     */
+    public function setMoyenne($moyenne): void
+    {
+        $this->moyenne = $moyenne;
+    }
+
 }

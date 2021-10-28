@@ -6,5 +6,6 @@ id:{{ c.id }}/title:{{ c.title }}/Description:{{  c.description }}
     <a href="#">Delete</a>
     <a href="{{ path('classroomShow',{'id':c.id}) }}">Show More</a>
     <a href="#">Update</a>
+    <a href="{{ path('listStudentByClassroom',{'id':c.id}) }}">List Student</a>
     <br>
 {% endfor %}

@@ -47,4 +47,68 @@ class StudentRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+    public function orderByMail()
+    {
+        $qb=  $this->createQueryBuilder('s')
+            ->orderBy('s.email', 'ASC');
+        return $qb->getQuery()
+            ->getResult();
+    }
+    public function listStudentByClass($id)
+    {
+        return $this->createQueryBuilder('s')
+            ->join('s.classroom', 'c')
+            ->addSelect('c')
+            ->where('c.id=:id')
+            ->setParameter('id',$id)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function searchStudent($nsc)
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.nce LIKE :x')
+            ->setParameter('x', '%'.$nsc.'%')
+            ->getQuery()
+            ->execute();
+    }
+
+    public function orderByDate()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.creationDate', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()->getResult();
+    }
+
+    public function findEnabledStudent()
+    {
+        $qb = $this->createQueryBuilder('s');
+        $qb->where('s.enabled=:enabled');
+        $qb->setParameter('enabled', true);
+        return $qb->getQuery()->getResult();
+    }
+
+
+    //Question 3-DQL
+    public function findStudentByAVG($min,$max){
+        $entityManager=$this->getEntityManager();
+        $query=$entityManager
+            ->createQuery("SELECT s FROM APP\Entity\Student s WHERE s.moyenne BETWEEN :min AND :max")
+            ->setParameter('min',$min)
+            ->setParameter('max',$max)
+        ;
+        return $query->getResult();
+    }
+
+    //Question 4-DQL
+    public function findExcellentStudent(){
+        $entityManager=$this->getEntityManager();
+        $query=$entityManager
+            ->createQuery("SELECT s FROM APP\Entity\Student s WHERE s.moyenne >= 18");
+        return $query->getResult();
+    }
 }

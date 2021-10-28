@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="28170c91-292f-4a59-b8ed-b4b5104cc52a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Classroom.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ClassroomRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ClassroomController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClassroomController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Classroom.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Classroom.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/StudentType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/StudentType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/student/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/student/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/student/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/student/list.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -187,7 +192,9 @@
       <updated>1633092732562</updated>
       <workItem from="1633092734224" duration="6341000" />
       <workItem from="1633698458221" duration="8336000" />
-      <workItem from="1634908480159" duration="6880000" />
+      <workItem from="1634908480159" duration="7370000" />
+      <workItem from="1635101647386" duration="1255000" />
+      <workItem from="1635407867301" duration="5281000" />
     </task>
     <servers />
   </component>

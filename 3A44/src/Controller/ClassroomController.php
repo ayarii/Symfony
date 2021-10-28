@@ -74,6 +74,7 @@ class ClassroomController extends AbstractController
      */
     public function deleteClassroom(ClassroomRepository $c,$id,EntityManagerInterface $em)
     {
+
         $classroom= $c->find($id);
         $em->remove($classroom);
         $em->flush();

@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Student;
+use App\Form\StudentType;
+use App\Repository\StudentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -20,7 +23,7 @@ class StudentController extends AbstractController
     }
 
     /**
-     * @Route("/listStudent",name="list")
+     * @Route("/listStudent",name="listStudent")
      */
     public function list()
     {
@@ -46,5 +49,40 @@ class StudentController extends AbstractController
         $em->remove($student);
         $em->flush();
         return $this->redirectToRoute("list");
+    }
+
+    /**
+     * @Route("/addStudent",name="studentAdd")
+     */
+    public function addStudent(Request $request)
+    {
+        $student= new Student();
+        $formStudent= $this->createForm(StudentType::class,$student);
+        $formStudent->handleRequest($request);
+        if($formStudent->isSubmitted()){
+            $em= $this->getDoctrine()->getManager();
+            $em->persist($student);
+            $em->flush();
+            return $this->redirectToRoute("listStudent");
+        }
+        return $this->render("student/add.html.twig",array("formStudent"=>$formStudent->createView()));
+    }
+
+
+    /**
+     * @Route("/updateStudent/{nce}",name="studentUpdate")
+     */
+    public function updateStudent(StudentRepository $s,$nce,Request $request)
+    {
+        $student= $s->find($nce);
+        //var_dump($student).die();
+        $formStudent= $this->createForm(StudentType::class,$student);
+        $formStudent->handleRequest($request);
+        if($formStudent->isSubmitted()){
+            $em= $this->getDoctrine()->getManager();
+            $em->flush();
+            return $this->redirectToRoute("listStudent");
+        }
+        return $this->render("student/add.html.twig",array("formStudent"=>$formStudent->createView()));
     }
 }

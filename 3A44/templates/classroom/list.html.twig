@@ -16,7 +16,9 @@
             <td>{{class.enabled}}</td>
             <td>{{class.description}}</td>
             <td><a href="{{ path('updateClassroom',{'id':class.id}) }}">Update</a>
-                <a href="{{ path('removeClassroom',{'id':class.id}) }}">Delete</a></td>
+                <a href="{{ path('removeClassroom',{'id':class.id}) }}">Delete</a>
+                <a href="{{ path('listStudentByClassroom',{'id':class.id}) }}) }}">ShowList Student</a></td>
+
         </tr>
     {% endfor %}
 </table>

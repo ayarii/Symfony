@@ -32,6 +32,11 @@ class Student
     private $classroom;
 
     /**
+     * @ORM\Column(type="float")
+     */
+    private $moyenne;
+
+    /**
      * @return mixed
      */
     public function getNce()
@@ -79,6 +84,24 @@ class Student
     public function setClassroom(?Classroom $classroom): self
     {
         $this->classroom = $classroom;
+
+        return $this;
+    }
+
+
+    public function __toString()
+    {
+        return(string)$this->getUsername();
+    }
+
+    public function getMoyenne(): ?float
+    {
+        return $this->moyenne;
+    }
+
+    public function setMoyenne(float $moyenne): self
+    {
+        $this->moyenne = $moyenne;
 
         return $this;
     }

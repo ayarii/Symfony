@@ -5,10 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ClassroomController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClassroomController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Classroom.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Classroom.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/StudentType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/StudentType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/student/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/student/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/StudentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/StudentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/classroom/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classroom/list.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/student/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/student/list.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -160,11 +159,12 @@
   <component name="ProjectId" id="1yuDljUz0IH4PYblkwD3QVV6wt2" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/student" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Symfony\3A44\templates\student" />
       <recent name="C:\wamp64\www\Symfony\3A44\public\Pictures" />
     </key>
   </component>
@@ -194,7 +194,11 @@
       <workItem from="1633698458221" duration="8336000" />
       <workItem from="1634908480159" duration="7370000" />
       <workItem from="1635101647386" duration="1255000" />
-      <workItem from="1635407867301" duration="5281000" />
+      <workItem from="1635407867301" duration="6294000" />
+      <workItem from="1635425480449" duration="641000" />
+      <workItem from="1635426857279" duration="580000" />
+      <workItem from="1635490256276" duration="626000" />
+      <workItem from="1635512625675" duration="11632000" />
     </task>
     <servers />
   </component>

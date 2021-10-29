@@ -1,0 +1,24 @@
+<table border="1">
+    <tr>
+        <td>NCE</td>
+        <td>Username</td>
+        <td>Email</td>
+        <td>Classroom</td>
+        <td>Action</td>
+    </tr>
+    {%for i in tabStudent %}
+        <tr>
+            <td>{{ i.nce }}</td>
+            <td>{{ i.username }}</td>
+            <td>{{ i.email }}</td>
+            {#<td>{{ i.classroom.name }}</td>#}
+            <td>{{ i.classroom }}</td>
+            <td>
+                <a href="{{ path('show',{"nce":i.nce}) }}">showMore</a>
+                <a href="{{ path('studentUpdate',{"nce":i.nce}) }}">Update</a>
+                <a href="{{ path('remove',{"nce":i.nce}) }}">Delete</a>
+            </td>
+
+        </tr>
+    {% endfor %}
+</table>

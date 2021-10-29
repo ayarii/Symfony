@@ -1,3 +1,4 @@
+{{ form(formSearch) }}
 <h1 style="color: #fb9d1c">List Student</h1>
 <a href="{{path('studentAdd')}}">Add Student</a>
 <table border="1">
@@ -22,6 +23,31 @@
         </td>
 
     </tr>
+    {% endfor %}
+</table>
+<h1 style="color: #AA3333">List Student Order by Email</h1>
+<table border="1">
+    <tr>
+        <td>NCE</td>
+        <td>Username</td>
+        <td>Email</td>
+        <td>Classroom</td>
+        <td>Action</td>
+    </tr>
+    {%for i in studentsByEmail %}
+        <tr>
+            <td>{{ i.nce }}</td>
+            <td>{{ i.username }}</td>
+            <td>{{ i.email }}</td>
+            {#<td>{{ i.classroom.name }}</td>#}
+            <td>{{ i.classroom }}</td>
+            <td>
+                <a href="{{ path('show',{"nce":i.nce}) }}">showMore</a>
+                <a href="{{ path('studentUpdate',{"nce":i.nce}) }}">Update</a>
+                <a href="{{ path('remove',{"nce":i.nce}) }}">Delete</a>
+            </td>
+
+        </tr>
     {% endfor %}
 </table>
 

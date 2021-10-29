@@ -27,6 +27,11 @@ class Student
     private $email;
 
     /**
+     * @ORM\ManyToOne(targetEntity=Classroom::class, inversedBy="student")
+     */
+    private $classroom;
+
+    /**
      * @return mixed
      */
     public function getNce()
@@ -72,6 +77,18 @@ class Student
     public function setEmail($email): void
     {
         $this->email = $email;
+    }
+
+    public function getClassroom(): ?Classroom
+    {
+        return $this->classroom;
+    }
+
+    public function setClassroom(?Classroom $classroom): self
+    {
+        $this->classroom = $classroom;
+
+        return $this;
     }
 
 }

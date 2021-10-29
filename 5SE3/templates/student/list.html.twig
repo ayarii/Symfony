@@ -1,8 +1,13 @@
-<h1>La liste des étudiants</h1>
+<h1>List Student</h1>
+<a href="{{ path('addStudent') }}">Add Student</a>
+<br>
 {% for student in tabStudents %}
     NCE: {{ student.nce }}/
     Username: {{ student.username }}/
-    Email: {{ student.email}}
+    Email: {{ student.email}}/
+    Classroom: {{ student.classroom}}
     <a href="#">Show More</a>
+    <a href="{{path('updateStudent',{'nce':student.nce})}}">Update</a>
+    <a href="{{path('removeStudent',{'nce':student.nce})}}">Delete</a>
     <br>
 {% endfor %}

@@ -1,0 +1,37 @@
+<h1>List Club</h1>
+{{ form(searchForm) }}
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>name</td>
+        <td>Description</td>
+        <td>createdAt</td>
+    </tr>
+    {% for c in listClub %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{c.name|upper}}</td>
+            <td>{{c.description}}</td>
+            <td>{{c.createdAt|date}}</td>
+        </tr>
+    {% endfor %}
+</table>
+<h1 style=" color: indianred">Order By Name</h1>
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>name</td>
+        <td>Description</td>
+        <td>createdAt</td>
+    </tr>
+    {% for c in orderByName %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{c.name|upper}}</td>
+            <td>{{c.description}}</td>
+            <td>{{c.createdAt|date}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+Nbr de club: {{ listClub|length }}

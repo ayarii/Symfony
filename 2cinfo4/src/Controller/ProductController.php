@@ -19,7 +19,7 @@ class ProductController extends AbstractController
     }
 
     public function listProduct(){
-        return Response::class("bonjour");
+        return new Response("bonjour");
     }
 
 }

@@ -1,0 +1,12 @@
+{
+    "name": "symfony/orm-pack",
+    "type": "symfony-pack",
+    "license": "MIT",
+    "description": "A pack for the Doctrine ORM",
+    "require": {
+        "doctrine/orm": "*",
+        "doctrine/doctrine-bundle": "*",
+        "doctrine/doctrine-migrations-bundle": "*",
+        "symfony/proxy-manager-bridge": "*"
+    }
+}

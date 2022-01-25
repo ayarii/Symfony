@@ -1,0 +1,24 @@
+<img src="{{ asset('images/symfony.png') }}" alt="logo" height="100px" width="100px">
+<h1>La liste des formations</h1>
+{#Declaration d'une variable#}
+{% set x = "2cinfo4" %}
+la classe: {{ x }}
+<br>
+{#{%  %}: pour faire qlq chose#}
+{#{{  }}: pour afficher qlq chose#}
+{% if tabFormation is empty %}
+    <h5>Pas de formation</h5>
+{% else %}
+    {% for i in tabFormation %}
+        Ref: {{ i.ref }}
+        Titre: {{ i.Titre|upper }}
+        Description: {{ i.Description }}
+        NP: {% if i.nb_participants == 0  %}
+        <span style="color: red">complet</span>
+    {% else %}
+        {{ i.nb_participants }}
+    {% endif %}
+        <br>
+    {% endfor %}
+{% endif %}
+Nbr de formation: {{ tabFormation|length }}

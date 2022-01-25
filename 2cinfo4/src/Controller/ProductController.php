@@ -17,9 +17,4 @@ class ProductController extends AbstractController
             'controller_name' => 'ProductController',
         ]);
     }
-
-    public function listProduct(){
-        return new Response("bonjour");
-    }
-
 }

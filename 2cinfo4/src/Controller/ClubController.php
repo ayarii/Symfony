@@ -46,4 +46,13 @@ class ClubController extends AbstractController
          $em->flush();
          return $this->redirectToRoute("listClub");
     }
+
+    /**
+     * @Route("/addClub", name="addClub")
+     */
+    public function addClub()
+    {
+        $club = new Club();
+        return $this->render("club/add.html.twig");
+    }
 }

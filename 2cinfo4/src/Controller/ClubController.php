@@ -35,4 +35,15 @@ class ClubController extends AbstractController
         return $this->render("club/show.html.twig",array('club'=>$club));
     }
 
+    /**
+     * @Route("/deleteClub/{id}", name="removeClub")
+     */
+    public function deleteClub($id)
+    {
+        $club= $this->getDoctrine()->getRepository(Club::class)->find($id);
+        $em= $this->getDoctrine()->getManager();
+        $this->getDoctrine()->getManager()->remove($club);
+         $em->flush();
+         return $this->redirectToRoute("listClub");
+    }
 }

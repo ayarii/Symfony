@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Club;
+use App\Form\ClubType;
+use App\Repository\ClubRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -48,11 +51,35 @@ class ClubController extends AbstractController
     }
 
     /**
-     * @Route("/addClub", name="addClub")
+     * @Route("/addClub",name="ajoutClub")
      */
-    public function addClub()
+    public function addClub(Request $request)
     {
-        $club = new Club();
-        return $this->render("club/add.html.twig");
+        $club= new Club();
+        $form = $this->createForm(ClubType::class,$club);
+        $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $em= $this->getDoctrine()->getManager();
+            $em->persist($club);
+            $em->flush();
+            return $this->redirectToRoute("listClub");
+        }
+        return $this->render("club/add.html.twig",array('formulaireClub'=>$form->createView()));
+   }
+
+    /**
+     * @Route("/updateClub/{id}",name="editClub")
+     */
+    public function updateClub(ClubRepository $repository,$id, Request $request){
+        $club= $repository->find($id);
+        $form= $this->createForm(ClubType::class,$club);
+       $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $em= $this->getDoctrine()->getManager();
+            $em->flush();
+            return $this->redirectToRoute("listClub");
+        }
+        return $this->render("club/update.html.twig",array('formUpdate'=>$form->createView()));
     }
+
 }

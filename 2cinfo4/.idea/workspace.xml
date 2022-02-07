@@ -4,6 +4,8 @@
     <list default="true" id="367b2d27-7573-4254-8b9f-01fc777d06b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ClubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClubController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ClubType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/club/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/add.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/club/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/list.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -202,7 +204,9 @@
       <workItem from="1643892144859" duration="240000" />
       <workItem from="1643910311828" duration="6568000" />
       <workItem from="1643979830486" duration="659000" />
-      <workItem from="1643997046530" duration="3446000" />
+      <workItem from="1643997046530" duration="4304000" />
+      <workItem from="1644231363676" duration="1275000" />
+      <workItem from="1644256256807" duration="2925000" />
     </task>
     <servers />
   </component>

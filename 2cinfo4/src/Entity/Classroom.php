@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ClassroomRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,9 +14,10 @@ class Classroom
 {
     /**
      * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $ref;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=150)
@@ -27,21 +30,22 @@ class Classroom
     private $description;
 
     /**
-     * @return mixed
+     * @ORM\OneToMany(targetEntity=Student::class, mappedBy="classroom" )
      */
-    public function getRef()
+    private $student;
+
+    public function __construct()
     {
-        return $this->ref;
+        $this->student = new ArrayCollection();
     }
 
     /**
-     * @param mixed $ref
+     * @return mixed
      */
-    public function setRef($ref): void
+    public function getId()
     {
-        $this->ref = $ref;
+        return $this->id;
     }
-
 
     public function getName(): ?string
     {
@@ -63,6 +67,36 @@ class Classroom
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Student[]
+     */
+    public function getStudent(): Collection
+    {
+        return $this->student;
+    }
+
+    public function addStudent(Student $student): self
+    {
+        if (!$this->student->contains($student)) {
+            $this->student[] = $student;
+            $student->setClassroom($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStudent(Student $student): self
+    {
+        if ($this->student->removeElement($student)) {
+            // set the owning side to null (unless already changed)
+            if ($student->getClassroom() === $this) {
+                $student->setClassroom(null);
+            }
+        }
 
         return $this;
     }

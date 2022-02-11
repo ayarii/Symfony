@@ -1,3 +1,7 @@
+{% extends 'base.html.twig' %}
+{% block title %}List Student{%  endblock %}
+
+{% block content %}
 {{ form(searchForm) }}
 {% for s in students %}
     {{ s.nce }}/
@@ -27,3 +31,4 @@
     <br>
 {% endfor %}
 
+{% endblock %}

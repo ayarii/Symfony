@@ -1,1 +1,17 @@
-{{ form(formStudent) }}
+{% extends 'base.html.twig' %}
+{% block title %}Add Student{%  endblock %}
+{% block content %}
+{#{{ form(form) }}#}
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+<h1> Add Student </h1>
+{{ form_errors(form.nce) }}
+{{ form_label(form.nce,"Numéro d'inscription") }}
+{{ form_widget(form.nce) }}
+{{ form_errors(form.username) }}
+{{ form_label(form.username,"Username") }}
+{{ form_widget(form.username)}}
+{{ form_errors(form.email) }}
+{{ form_label(form.email,"Email") }}
+{{ form_widget(form.email)}}
+{{ form_end(form) }}
+{% endblock %}

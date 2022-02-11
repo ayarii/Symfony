@@ -31,12 +31,12 @@ class StudentController extends AbstractController
         $student= new Student();
         $form= $this->createForm(StudentType::class,$student);
         $form->handleRequest($request);
-        if($form->isSubmitted()){
+        if($form->isSubmitted() && $form->isValid()){
             $em->persist($student);
             $em->flush();
             return $this->redirectToRoute("listStudent");
         }
-        return $this->render("student/add.html.twig",array("formStudent"=>$form->createView()));
+        return $this->render("student/add.html.twig",array("form"=>$form->createView()));
     }
 
     /**

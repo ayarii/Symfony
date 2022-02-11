@@ -25,10 +25,7 @@ class FormationController extends AbstractController
     {
         $classe='youssef';
         $formations = array(
-            array('ref' => 'form147', 'Titre' => 'Formation Symfony
-4','Description'=>'formation pratique',
-                'date_debut'=>'12/06/2020', 'date_fin'=>'19/06/2020',
-                'nb_participants'=>19) ,
+
             array('ref'=>'form177','Titre'=>'Formation SOA' ,
                 'Description'=>'formation
 theorique','date_debut'=>'03/12/2020','date_fin'=>'10/12/2020',

@@ -27,7 +27,6 @@ class UserController extends AbstractController
         return new Response("List Users".$var);
     }
 
-
     /**
      * @Route("/showUser",name="usershow")
      */

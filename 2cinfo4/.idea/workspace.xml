@@ -154,7 +154,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../FirstProject" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
@@ -206,7 +206,7 @@
       <workItem from="1644256256807" duration="5195000" />
       <workItem from="1644304267204" duration="12916000" />
       <workItem from="1644497250718" duration="196000" />
-      <workItem from="1644665481277" duration="11807000" />
+      <workItem from="1644665481277" duration="13084000" />
     </task>
     <servers />
   </component>

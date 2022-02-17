@@ -1,0 +1,27 @@
+<h1>Liste des classes</h1>
+<a href="#">Add a new classroom</a>
+{% if tabclass is empty %}
+<h4>Pas de classe</h4>
+{% else %}
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>Description</td>
+        <td>Action</td>
+    </tr>
+
+
+{% for classroom in tabclass %}
+    <tr>
+        <td>{{  classroom.id}}</td>
+        <td>{{ classroom.title|upper }}</td>
+        <td>{{ classroom.description }}</td>
+        <td><a href="#">Show</a>
+            <a href="#">Delete</a>
+            <a href="#">Edit</a></td>
+    </tr>
+{% endfor %}
+</table>
+{% endif %}
+Nb de classe: {{ tabclass|length }}

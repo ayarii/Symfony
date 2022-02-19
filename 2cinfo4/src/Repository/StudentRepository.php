@@ -47,4 +47,32 @@ class StudentRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+    public function orderByFirstName()
+    {
+        $qb=  $this->createQueryBuilder('s')
+            ->orderBy('s.firstName', 'DESC')
+        ->setMaxResults(1);
+        return $qb->getQuery()
+            ->getResult();
+    }
+    public function findEnabledStudent()
+    {
+        $qb = $this->createQueryBuilder('s');
+        $qb->where('s.enabled=:x');
+        $qb->setParameter('x', true);
+        return $qb->getQuery()->getResult();
+    }
+
+
+    public function searchStudent($firstName)
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.firstName LIKE :x')
+            ->setParameter('x', '%'.$firstName.'%')
+            ->getQuery()
+            ->execute();
+    }
+
 }

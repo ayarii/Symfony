@@ -1,6 +1,5 @@
 # :v:	Symfony Project 
 ## Academic project using Symfony Framework
-####  :point_right: create project: composer
 ####  :point_right: create controller: php bin/console make:controller
 #### :point_right: create new Data Base: php bin/console doctrine:database:create
 ####  :point_right: drop DB: php bin/console doctrine:database:create --force

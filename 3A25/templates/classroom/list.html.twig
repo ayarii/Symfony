@@ -1,0 +1,25 @@
+<a href="#">Add Classroom</a>
+<h1>Hello classroom houssem</h1>
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Enabled</td>
+        <td>createdAt</td>
+        <td>Action</td>
+    </tr>
+    {% for c in tabClassroom %}
+        <tr>
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.description}}</td>
+            <td>{{c.enabled}}</td>
+            <td>{{c.createdAt |date("y-m-d")}}</td>
+            <td><a href="#">Update</a>
+                <a href="#">Remove</a>
+                <a href="#">Show</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>

@@ -1,5 +1,5 @@
-<h1>Liste des classes</h1>
-<a href="#">Add a new classroom</a>
+<h1>List Classroom</h1>
+<a href="{{ path('addClassroom') }}">Add a new classroom</a>
 {% if tabclass is empty %}
 <h4>Pas de classe</h4>
 {% else %}
@@ -18,8 +18,8 @@
         <td>{{ classroom.title|upper }}</td>
         <td>{{ classroom.description }}</td>
         <td><a href="#">Show</a>
-            <a href="#">Delete</a>
-            <a href="#">Edit</a></td>
+            <a href="{{ path('suppClassroom',{'id':classroom.id}) }}">Delete</a>
+            <a href="{{ path('updateClassroom',{'id':classroom.id}) }}">Edit</a></td>
     </tr>
 {% endfor %}
 </table>

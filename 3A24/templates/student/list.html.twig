@@ -13,7 +13,8 @@
             <td>{{student.username}}</td>
             <td>{{student.email}}</td>
             <td>{{student.moyenne}}</td>
-            <td><a href="{{ path('studentsDelete',{'nce':student.nce}) }}">Delete</a></td>
+            <td><a href="{{ path('studentsDelete',{'nce':student.nce}) }}">Delete</a>
+            <a href="{{ path('updateStudent',{'nce':student.nce}) }}">Update</a></td>
         </tr>
     {% endfor %}
 </table>

@@ -1,4 +1,4 @@
-<a href="#">Add Classroom</a>
+<a href="{{ path('addClassroom') }}">Add Classroom</a>
 <h1>Hello classroom houssem</h1>
 <table border="1">
     <tr>
@@ -16,8 +16,8 @@
             <td>{{c.description}}</td>
             <td>{{c.enabled}}</td>
             <td>{{c.createdAt |date("y-m-d")}}</td>
-            <td><a href="#">Update</a>
-                <a href="#">Remove</a>
+            <td><a href="{{ path('classroomUpdate',{'id':c.id}) }}">Update</a>
+                <a href="{{ path('deleteClassroom',{'id':c.id}) }}">Remove</a>
                 <a href="#">Show</a>
             </td>
         </tr>

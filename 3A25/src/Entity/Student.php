@@ -32,6 +32,11 @@ class Student
      */
     private $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Classroom::class, inversedBy="students")
+     */
+    private $classroom;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Student
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getClassroom(): ?Classroom
+    {
+        return $this->classroom;
+    }
+
+    public function setClassroom(?Classroom $classroom): self
+    {
+        $this->classroom = $classroom;
 
         return $this;
     }

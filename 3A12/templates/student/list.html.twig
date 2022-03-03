@@ -1,0 +1,25 @@
+<h1>List Student</h1>
+<a href="{{ path('studentAdd') }}">+ Add a new Student</a>
+{% if students is empty %}
+    <h4>Pas de classe</h4>
+{% else %}
+    <table border="1">
+        <tr>
+            <td>nce</td>
+            <td>username</td>
+            <td>Action</td>
+        </tr>
+
+
+        {% for student in students %}
+            <tr>
+                <td>{{  student.nce}}</td>
+                <td>{{ student.username|upper }}</td>
+                <td><a href="#">Show</a>
+                    <a href="#">Delete</a>
+                    <a href="{{ path('studentUpdate',{'nce':student.nce}) }}">Edit</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+Nb Student {{ students|length }}

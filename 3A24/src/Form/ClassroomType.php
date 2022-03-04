@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Classroom;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,6 +17,8 @@ class ClassroomType extends AbstractType
             ->add('description')
             ->add('enabled')
             ->add('nbStudent')
+            ->add('save',SubmitType::class)
+
         ;
     }
 

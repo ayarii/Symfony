@@ -17,6 +17,7 @@ class StudentType extends AbstractType
             ->add('username')
             ->add('email')
             ->add('moyenne')
+            ->add('classroom')
             ->add('Submit',SubmitType::class)
         ;
     }

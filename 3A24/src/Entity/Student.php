@@ -32,6 +32,11 @@ class Student
     private $moyenne;
 
     /**
+     * @ORM\ManyToOne(targetEntity=Classroom::class, inversedBy="students")
+     */
+    private $classroom;
+
+    /**
      * @return mixed
      */
     public function getNce()
@@ -80,6 +85,18 @@ class Student
     public function setMoyenne(?float $moyenne): self
     {
         $this->moyenne = $moyenne;
+
+        return $this;
+    }
+
+    public function getClassroom(): ?Classroom
+    {
+        return $this->classroom;
+    }
+
+    public function setClassroom(?Classroom $classroom): self
+    {
+        $this->classroom = $classroom;
 
         return $this;
     }

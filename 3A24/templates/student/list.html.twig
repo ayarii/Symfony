@@ -10,7 +10,7 @@
     {% for student in tabStudent %}
         <tr>
             <td>{{student.nce}}</td>
-            <td>{{student.username}}</td>
+            <td>{{student.username|upper}}</td>
             <td>{{student.email}}</td>
             <td>{{student.moyenne}}</td>
             <td><a href="{{ path('studentsDelete',{'nce':student.nce}) }}">Delete</a>
@@ -18,3 +18,4 @@
         </tr>
     {% endfor %}
 </table>
+Nbr Student: {{ tabStudent|length }}

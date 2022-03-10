@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Student;
+use App\Form\SearchFormType;
 use App\Form\StudentType;
 use App\Repository\StudentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,10 +26,23 @@ class StudentController extends AbstractController
     /**
      * @Route("/listStudent", name="listStudent")
      */
-    public function list()
+    public function list(Request $request)
     {
         $students= $this->getDoctrine()->getRepository(Student::class)->findAll();
-        return $this->render("student/list.html.twig",array("students"=>$students));
+        $studentOrderByMail=$this->getDoctrine()->getRepository(Student::class)->orderByMail();
+        $findExcellentStudent=$this->getDoctrine()->getRepository(Student::class)->findExcellentStudent();
+       $formSearch= $this->createForm(SearchFormType::class);
+       $formSearch->handleRequest($request);
+       if($formSearch->isSubmitted()){
+           $username= $formSearch->getData();
+           $results = $this->getDoctrine()->getRepository(Student::class)->searchStudent($username);
+           return $this->render("student/list.html.twig",
+               array("searchForm"=>$formSearch->createView(),
+                   "students"=>$results,'studentOrderByMail'=>$studentOrderByMail,'findExcellentStudent'=>$findExcellentStudent));
+       }
+        return $this->render("student/list.html.twig",
+            array("searchForm"=>$formSearch->createView(),
+                "students"=>$students,'studentOrderByMail'=>$studentOrderByMail,'findExcellentStudent'=>$findExcellentStudent));
     }
     /**
      * @Route("/addStudent",name="studentAdd")

@@ -1,4 +1,26 @@
 <h1>List Student</h1>
+{{ form(searchForm) }}
+The First One:
+<table border="1">
+    <tr>
+        <td>nce</td>
+        <td>username</td>
+        <td>Email</td>
+        <td>Action</td>
+    </tr>
+
+
+    {% for student in findExcellentStudent %}
+        <tr>
+            <td>{{  student.nce}}</td>
+            <td>{{ student.username|upper }}</td>
+            <td>{{ student.email }}</td>
+            <td><a href="#">Show</a>
+                <a href="#">Delete</a>
+                <a href="{{ path('studentUpdate',{'nce':student.nce}) }}">Edit</a></td>
+        </tr>
+    {% endfor %}
+</table>
 <a href="{{ path('studentAdd') }}">+ Add a new Student</a>
 {% if students is empty %}
     <h4>Pas de classe</h4>
@@ -22,4 +44,30 @@
         {% endfor %}
     </table>
 {% endif %}
+<h1>List Student Order By Mail</h1>
+{% if students is empty %}
+    <h4>Pas de classe</h4>
+{% else %}
+    <table border="1">
+        <tr>
+            <td>nce</td>
+            <td>username</td>
+            <td>Email</td>
+            <td>Action</td>
+        </tr>
+
+
+        {% for student in studentOrderByMail %}
+            <tr>
+                <td>{{  student.nce}}</td>
+                <td>{{ student.username|upper }}</td>
+                <td>{{ student.email }}</td>
+                <td><a href="#">Show</a>
+                    <a href="#">Delete</a>
+                    <a href="{{ path('studentUpdate',{'nce':student.nce}) }}">Edit</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
 Nb Student {{ students|length }}

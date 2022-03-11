@@ -1,3 +1,4 @@
+{{ form(formSearch) }}
 <h1>La liste des étudiants</h1>
 <table border="1">
     <tr>
@@ -15,6 +16,27 @@
             <td>{{student.moyenne}}</td>
             <td><a href="{{ path('studentsDelete',{'nce':student.nce}) }}">Delete</a>
             <a href="{{ path('updateStudent',{'nce':student.nce}) }}">Update</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+<h1>List Student Order By Mail</h1>
+<table border="1">
+    <tr>
+        <td>NCE</td>
+        <td>Username</td>
+        <td>Email</td>
+        <td>Moyenne</td>
+        <td>Action</td>
+    </tr>
+    {% for student in studentsOrderByMail %}
+        <tr>
+            <td>{{student.nce}}</td>
+            <td>{{student.username|upper}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.moyenne}}</td>
+            <td><a href="{{ path('studentsDelete',{'nce':student.nce}) }}">Delete</a>
+                <a href="{{ path('updateStudent',{'nce':student.nce}) }}">Update</a></td>
         </tr>
     {% endfor %}
 </table>

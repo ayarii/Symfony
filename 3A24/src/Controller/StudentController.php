@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Student;
+use App\Form\SearchStudentType;
 use App\Form\StudentType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,10 +25,26 @@ class StudentController extends AbstractController
     /**
      * @Route("/listStudent",name="studentsList")
      */
-    public function listStudent()
+    public function listStudent(Request $request )
     {
         $students= $this->getDoctrine()->getRepository(Student::class)->findAll();
-      return $this->render("student/list.html.twig",array("tabStudent"=>$students));
+        $studentsOrderByMail= $this->getDoctrine()->getRepository(Student::class)->orderByMail();
+       $formSearch= $this->createForm(SearchStudentType::class);
+       $formSearch->handleRequest($request);
+        if($formSearch->isSubmitted()){
+            $nce= $formSearch->getData();
+            $results= $this->getDoctrine()->getRepository(Student::class)->searchStudent($nce);
+            return $this->render("student/list.html.twig",
+                array("tabStudent"=>$results,
+                    'studentsOrderByMail'=>$studentsOrderByMail,
+                    'formSearch'=>$formSearch->createView()
+                ));
+        }
+        return $this->render("student/list.html.twig",
+            array("tabStudent"=>$students,
+                      'studentsOrderByMail'=>$studentsOrderByMail,
+                     'formSearch'=>$formSearch->createView()
+            ));
     }
     /**
      * @Route("/deleteStudent/{nce}",name="studentsDelete")

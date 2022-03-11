@@ -47,4 +47,29 @@ class StudentRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function orderByMail()
+    {
+        $qb = $this->createQueryBuilder('s')
+            ->orderBy('s.email', 'ASC')
+            ->setMaxResults(2);
+        return $qb->getQuery()
+            ->getResult();
+    }
+
+    public function findExcellentStudent(){
+        $entityManager=$this->getEntityManager();
+        $query=$entityManager
+            ->createQuery("SELECT s FROM APP\Entity\Student s
+             WHERE s.moyenne >= 18");
+        return $query->getResult();
+    }
+
+    public function searchStudent($nce)
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.nce LIKE :x')
+            ->setParameter('x', '%'.$nce.'%')
+            ->getQuery()
+            ->execute();
+    }
 }

@@ -1,0 +1,21 @@
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Marque</td>
+        <td>Date Début</td>
+        <td>Date Fin</td>
+        <td>Action</td>
+    </tr>
+    {% for voiture in voitures %}
+        <tr>
+            <td>{{ voiture.id }}</td>
+            <td>{{ voiture.marque }}</td>
+            <td>{{ voiture.dateDebut|date("y-m-d") }}</td>
+            <td>{{ voiture.dateFin|date("y-m-d") }}</td>
+            <td>
+                <a href="{{ path('removevoiture',{'id':voiture.id}) }}">Delete</a>
+                <a href="{{ path('louerVoiture',{'id':voiture.id}) }}">Louer</a></td>
+            <td><a href="#">Nombre de voiture</a></td>
+        </tr>
+    {% endfor %}
+</table>

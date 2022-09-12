@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\StudentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=StudentRepository::class)
@@ -13,6 +14,7 @@ class Student
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="NSC is required")
      */
     private $nce;
 
@@ -23,6 +25,9 @@ class Student
 
     /**
      * @ORM\Column(type="string", length=150, nullable=true)
+     * @Assert\NotBlank(message="Email is required")
+     * @Assert\Email(message = "The email '{{ value }}' is not a valid
+        email.")
      */
     private $email;
 

@@ -1,0 +1,36 @@
+<img src="{{ asset('img/student.jpg') }}" alt="student"
+     width="100px" height="100px">
+<h1>La liste des formations</h1> de la classe
+ {{ x }} dans la salle  {{ y }}
+{% if tabFormation is empty %}
+<h1>Pas de formation</h1>
+{% else %}
+<table border="1">
+ <tr>
+  <td>Ref</td>
+  <td>Titre</td>
+  <td>Description</td>
+  <td>Nb_P</td>
+  <td>Participer</td>
+ </tr>
+{% for i in tabFormation %}
+ {% if i.Description == "theorique" %}
+ <tr>
+  <td>{{ i.ref }}</td>
+  <td>{{ i.Titre|upper }}</td>
+  <td>{{ i.Description }}</td>
+  <td>{{ i.nb_participants }}</td>
+  <td>
+   {% if i. nb_participants ==0 %}
+   <a href="{{ path('reservation_formation') }}">Participer</a>
+  {% else %}
+   solde out
+   {% endif %}
+  </td>
+ </tr>
+ {% else %}
+{% endif%}
+{% endfor %}
+</table>
+{% endif %}
+Nb_Formation: {{ tabFormation|length }}

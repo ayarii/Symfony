@@ -1,0 +1,36 @@
+<h1>la liste des formations de la classe {{ XYZ }} dans la salle {{ salle}} </h1>
+<img src="{{ asset('img/octocat.png') }}" alt="actocat" height="100px" width="100px">
+{% set var3 = 20 %}
+{{ var3  }}
+<table border="1">
+    <tr>
+        <td>Ref</td>
+        <td>Titre</td>
+        <td>Description</td>
+        <td>N_P</td>
+        <td>Action</td>
+    </tr>
+    {% if tab is empty %}
+    <h6>Pas de formation</h6>
+    {% else %}
+    {% for f in tab %}
+        {% if f.Description == "theorique" %}
+    <tr>
+        <td>{{ f.ref }}</td>
+        <td>{{ f.Titre|upper }}</td>
+        <td>{{ f.Description }}</td>
+        <td>{{ f.nb_participants }}</td>
+        <td>
+            {% if f.nb_participants == 0 %}
+            <a href="{{ path('app_reservation') }}">Participer</a>
+                {% else %}
+                    complet
+                    {% endif %}
+                </td>
+    </tr>
+            {% endif %}
+    {% endfor %}
+    {% endif %}
+</table>
+
+Total: {{ tab|length }}

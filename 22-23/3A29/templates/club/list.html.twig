@@ -1,0 +1,20 @@
+<img src="{{ asset('img/student.png') }}" alt="student">
+<h1>La  liste de formations de la classe {{c1}} dans la salle {{c2}}</h1>
+{% if tab_formations is empty %}
+<h6 style="color: coral">Pas de formations</h6>
+{% else %}
+{% for i in tab_formations %}
+    {% if i.Description == "theorique"%}
+    ref: {{i.ref}} titre: {{i.Titre|upper}} description: {{i.Description}} nb participants
+    {{i.nb_participants}}
+    Participer :
+    {% if i.nb_participants == 0 %}<a href="{{ path('app_reservation') }}">Participer</a>
+    {% else %}complet
+    {% endif %}
+    <br>
+    {% endif %}
+{% endfor %}
+{% endif %}
+<h5 style="color: blue">Nbr de formations: {{ tab_formations|length }}</h5>
+{% set x =10 %}
+x={{ x }}

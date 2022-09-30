@@ -1,0 +1,34 @@
+<img src="{{ asset('img/cat.png') }}" alt="cat" height="100px" width="100px">
+<h1> La liste des formations de la  {{ classe}} dans la salle {{ salle }}</h1>
+{% set sum =0  %}
+{% if  tabFormation  is empty%}
+<h6>Tab vide</h6>
+{% else %}
+<table border="1">
+    <tr>
+        <td>Ref</td>
+        <td>Titre</td>
+        <td>Description</td>
+        <td>NP</td>
+        <td>Action</td>
+    </tr>
+{% for f in tabFormation %}
+    {% set sum = sum+f.nb_participants %}
+    <tr>
+        <td>{{ f.ref }}</td>
+        <td>{{ f.Titre|upper }}</td>
+        <td>{{ f.Description }}</td>
+        <td>{{ f.nb_participants }}</td>
+        <td>
+            {% if f.nb_participants ==0 %}
+            <a href="{{ path('app_reservation') }}">Participer</a>
+            {% else %}
+            complet
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+nbr de formations: {{ tabFormation|length }}<br>
+Nbr Total des partici : {{ sum }}

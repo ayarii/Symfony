@@ -1,0 +1,10 @@
+<a href="#">+Add</a>
+<br>
+{% for c in tabClub %}
+    id : {{ c.id }}
+    name:{{ c.name }}
+    description: {{ c.description }}
+    <a href="#">Delete</a>
+    <a href="#">Update</a>
+   <br>
+{% endfor %}

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ClubRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -41,5 +42,14 @@ theorique','date_debut'=>'10/06/2020','date_fin'=>'14/06/2020',
 
     public function reservation(){
         return $this->render("club/reservation.html.twig");
+    }
+
+    #[Route('/clubs', name: 'app_clubs')]
+    public function listClub(ClubRepository  $x)
+    {
+        //$repository=$this->getDoctrine()->getRepository(ClubRepository::class)->findAll();
+        $clubs= $x->findAll();
+       return $this->render("club/clubs.html.twig",
+           array("tabClub"=>$clubs));
     }
 }

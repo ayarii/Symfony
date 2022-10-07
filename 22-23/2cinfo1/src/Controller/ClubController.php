@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Club;
 use App\Repository\ClubRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -51,5 +53,41 @@ theorique','date_debut'=>'10/06/2020','date_fin'=>'14/06/2020',
         $clubs= $x->findAll();
        return $this->render("club/clubs.html.twig",
            array("tabClub"=>$clubs));
+    }
+
+    #[Route('/addClub', name: 'add_club')]
+    public function addClub(ManagerRegistry $doctrine)
+    {
+        $club= new Club();
+        $club->setName("club1");
+        $club->setDescription("test");
+        $em= $doctrine->getManager();
+        $em->persist($club);
+        $em->flush();
+        return new Response("succes");
+    }
+
+    #[Route('/updateClub/{id}', name: 'update_club')]
+    public function update(ClubRepository $repository,$id,ManagerRegistry
+    $doctrine)
+    {
+        $club= $repository->find($id);
+        $club->setName("clubUpdate");
+        $club->setDescription("update description");
+        $em = $doctrine->getManager();
+        $em->flush();
+        return $this->redirectToRoute("app_clubs");
+    }
+    #[Route('/removeClub/{id}', name: 'remove_club')]
+    public function remove(ClubRepository $repository,$id,ManagerRegistry $doctrine)
+    {
+        $club= $repository->find($id);
+        $em= $doctrine->getManager();
+        $em->remove($club);
+        $em->flush();
+        return $this->redirectToRoute("app_clubs");
+
+
+
     }
 }

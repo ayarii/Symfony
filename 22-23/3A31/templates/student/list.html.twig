@@ -1,0 +1,9 @@
+<a href="#">Add student</a>
+<h5>List Student</h5>
+{% for s in tabStudent %}
+    nce: {{ s.nce }}
+    username:{{ s.username }}
+    <a href="#">Update</a>
+    <a href="#">Delete</a>
+    <br>
+{% endfor %}

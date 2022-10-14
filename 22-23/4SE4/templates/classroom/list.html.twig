@@ -1,0 +1,10 @@
+<a href="{{ path('addForm_classroom') }}">Add classroom</a>
+<h1>List Classroom</h1>
+{% for c in listClassroom %}
+id: {{ c.id }}
+    name:{{ c.name }}
+    nbrStudent: {{ c.nbrStudent }}
+    <a href="{{path('updateForm_classroom',{'id':c.id}) }})}}">Update</a>
+    <a href="{{path('removeForm_classroom',{'id':c.id}) }})}}">Delete</a>
+    <br>
+{% endfor %}

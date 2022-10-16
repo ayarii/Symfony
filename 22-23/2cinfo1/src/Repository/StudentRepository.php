@@ -63,4 +63,60 @@ class StudentRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function orderByID()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.id', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function searchStudent($id)
+    {
+        return $this->createQueryBuilder('s')
+            ->where('s.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function searchStudent1($value)
+    {
+        return $this->createQueryBuilder('s')
+            ->where('s.id = :value')
+            ->orWhere('s.email LIKE :value')
+            ->setParameter('id', $value)
+            ->setParameter('email', '%'.$value.'%')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function studentsMoyenne($min, $max)
+    {
+        $em = $this->getEntityManager();
+        $query = $em
+            ->createQuery("SELECT s FROM APP\Entity\Student s
+             WHERE s.moyenne BETWEEN :min AND :max")
+            ->setParameter('min', $min)
+            ->setParameter('max', $max);
+        return $query->getResult();
+    }
+
+
+    public function orderByDate()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.creationDate', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()->getResult();
+    }
+
+    public function findEnabledStudent()
+    {
+        $qb = $this->createQueryBuilder('s');
+        $qb->where('s.enabled=:x');
+        $qb->setParameter('x', true);
+        return $qb->getQuery()->getResult();
+    }
 }

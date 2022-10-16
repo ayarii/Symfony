@@ -86,8 +86,7 @@ theorique','date_debut'=>'10/06/2020','date_fin'=>'14/06/2020',
         $em->remove($club);
         $em->flush();
         return $this->redirectToRoute("app_clubs");
-
-
-
     }
+
+
 }

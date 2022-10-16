@@ -19,6 +19,9 @@ class Student
     #[ORM\ManyToOne(inversedBy: 'students')]
     private ?Classroom $classroom = null;
 
+    #[ORM\Column]
+    private ?bool $enabled = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +47,18 @@ class Student
     public function setClassroom(?Classroom $classroom): self
     {
         $this->classroom = $classroom;
+
+        return $this;
+    }
+
+    public function isEnabled(): ?bool
+    {
+        return $this->enabled;
+    }
+
+    public function setEnabled(bool $enabled): self
+    {
+        $this->enabled = $enabled;
 
         return $this;
     }

@@ -1,0 +1,15 @@
+<h1>Order by ID</h1>
+{% for s in listStudent %}
+    id:{{ s.id }}
+     username {{ s.username }}
+    classroom: {{ s.classroom }}
+    <br>
+{% endfor %}
+
+<h1>Enabled Student</h1>
+{% for s in enabledStudent %}
+    id:{{ s.id }}
+    username {{ s.username }}
+    classroom: {{ s.classroom }}
+    <br>
+{% endfor %}

@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="718e61c4-58f5-401c-89f3-b34289818718" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ClubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClubController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/StudentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/StudentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../3A31/.idea/3A31.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../3A31/.idea/3A31.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4SE4/src/Repository/StudentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/../4SE4/src/Repository/StudentRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,6 +172,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/xampp2/htdocs/Symfony/22-23/2cinfo1",
     "nodejs_package_manager_path": "npm",
@@ -202,7 +208,9 @@
       <workItem from="1665164620056" duration="5430000" />
       <workItem from="1665388019291" duration="1225000" />
       <workItem from="1665671233870" duration="837000" />
-      <workItem from="1665683071551" duration="5586000" />
+      <workItem from="1665683071551" duration="5773000" />
+      <workItem from="1665748416477" duration="1338000" />
+      <workItem from="1665771731317" duration="3148000" />
     </task>
     <servers />
   </component>

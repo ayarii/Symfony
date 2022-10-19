@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Student;
 use App\Form\StudentType;
+use App\Repository\ClassroomRepository;
 use App\Repository\StudentRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -82,5 +83,28 @@ class StudentController extends AbstractController
         $em->remove($student);
         $em->flush();
         return  $this->redirectToRoute("list_student");
+    }
+
+    #[Route('/addStudent2', name: 'addStudent2')]
+    public function addStudent2(StudentRepository $repository,Request $request,ManagerRegistry $doctrine)
+    {
+        $student= new Student();
+        $form= $this->createForm(StudentType::class,$student);
+        $form->handleRequest($request) ;
+        if ($form->isSubmitted()){
+            $repository->add($student,true);
+            return  $this->redirectToRoute("list_student");
+        }
+        return $this->renderForm("student/add2.html.twig",array("studentForm"=>$form));
+    }
+
+    #[Route('/deleteC/{id}', name: 'deleteC')]
+    public function deleteClassroom($id,ManagerRegistry $doctrine,ClassroomRepository $repository)
+    {
+        $classroom= $repository->find($id);
+        $em= $doctrine->getManager();
+        $em->remove($classroom);
+        $em->flush();
+        return new Response("hello");
     }
 }

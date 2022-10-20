@@ -35,15 +35,13 @@ class StudentController extends AbstractController
         return new Response("add student");
     }
     #[Route('/addStudentForm', name: 'addStudentForm')]
-    public function addStudentForm(Request  $request,ManagerRegistry $doctrine)
+    public function addStudentForm(StudentRepository $repository,Request  $request,ManagerRegistry $doctrine)
     {
         $student= new  Student();
         $form= $this->createForm(StudentType::class,$student);
         $form->handleRequest($request) ;
         if($form->isSubmitted()){
-             $em= $doctrine->getManager();
-             $em->persist($student);
-             $em->flush();
+             $repository->add($student,true);
              return  $this->redirectToRoute("addStudentForm");
          }
         return $this->renderForm("student/add.html.twig",array("FormStudent"=>$form));

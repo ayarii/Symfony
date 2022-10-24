@@ -1,0 +1,21 @@
+{{ form(searchForm) }}
+<h1>List Student</h1>
+{%  for i in students %}
+    nce: {{ i.nce }}
+    username: {{ i.username }}
+    <br>
+{% endfor %}
+<h2>List By NCE</h2>
+{%  for i in byNCE %}
+    nce: {{ i.nce }}
+    username: {{ i.username }}
+    <br>
+{% endfor %}
+
+<h2 style="color: greenyellow">Top Students</h2>
+{%  for i in topStudents %}
+    nce: {{ i.nce }}
+    username: {{ i.username }}
+    <br>
+{% endfor %}
+

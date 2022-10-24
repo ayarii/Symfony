@@ -1,0 +1,9 @@
+{{ classrom.id }}/{{ classrom.name }}
+
+
+<h2 style="color: greenyellow"> Students of {{ classrom.name }}</h2>
+{%  for i in students %}
+    nce: {{ i.nce }}
+    username: {{ i.username }}
+    <br>
+{% endfor %}

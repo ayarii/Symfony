@@ -1,0 +1,27 @@
+{{ form(searchStudent) }}
+<h1>All Students</h1>
+{% for i in tabStudents %}
+    id:{{ i.id }}
+    username: {{ i.username }}
+    moyenne:{{ i.moyenne }}
+    classroom: {{ i.classroom }}
+    <br>
+{% endfor %}
+<h1 style="color: coral">StudentsByMoyenne</h1>
+{% for i in StudentsByMoyenne %}
+    id:{{ i.id }}
+    username: {{ i.username }}
+    moyenne:{{ i.moyenne }}
+    classroom: {{ i.classroom }}
+    <br>
+{% endfor %}
+
+<h1 style="color: rosybrown">To Students</h1>
+
+{% for i in topStudents %}
+    id:{{ i.id }}
+    username: {{ i.username }}
+    moyenne:{{ i.moyenne }}
+    classroom: {{ i.classroom }}
+    <br>
+{% endfor %}

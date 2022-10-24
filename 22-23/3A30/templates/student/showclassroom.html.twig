@@ -1,0 +1,10 @@
+{{ classroom.id }}/{{ classroom.name }}
+
+<h1>list students</h1>
+{% for i in tabStudents %}
+    id:{{ i.id }}
+    username: {{ i.username }}
+    moyenne:{{ i.moyenne }}
+    classroom: {{ i.classroom }}
+    <br>
+{% endfor %}

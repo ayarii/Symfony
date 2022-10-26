@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Student;
+use App\Form\SearchStudentType;
 use App\Form\StudentType;
 use App\Repository\ClassroomRepository;
 use App\Repository\StudentRepository;
@@ -23,14 +24,29 @@ class StudentController extends AbstractController
     }
 
     #[Route('/listStudent', name: 'list_student')]
-    public function listStudent(StudentRepository $repository)
+    public function listStudent(Request $request,StudentRepository $repository)
     {
         $students= $repository->findAll();
        // $students= $this->getDoctrine()->getRepository(StudentRepository::class)->findAll();
-       return $this->render("student/list.html.twig",array("tabStudent"=>$students));
+        $sortByMoyenne= $repository->sortByMoyenne();
+       $formSearch= $this->createForm(SearchStudentType::class);
+       $formSearch->handleRequest($request);
+       $topStudents= $repository->topStudent();
+       if($formSearch->isSubmitted()){
+           $nce= $formSearch->get('nce')->getData();
+           //var_dump($nce).die();
+           $result= $repository->searchStudent($nce);
+           return $this->renderForm("student/list.html.twig",
+               array("tabStudent"=>$result,
+                   "sortByMoyenne"=>$sortByMoyenne,
+                   "searchForm"=>$formSearch));
+       }
+         return $this->renderForm("student/list.html.twig",
+           array("tabStudent"=>$students,
+               "sortByMoyenne"=>$sortByMoyenne,
+                "searchForm"=>$formSearch,
+               'topStudents'=>$topStudents));
     }
-
-
     #[Route('/addStudent', name: 'add_student')]
     public function addStudent(ManagerRegistry $doctrine)
     {
@@ -106,5 +122,17 @@ class StudentController extends AbstractController
         $em->remove($classroom);
         $em->flush();
         return new Response("hello");
+    }
+
+
+    #[Route('/showClassroom/{id}', name: 'showClassroom')]
+    public function showClassroom(StudentRepository $repo,$id,ClassroomRepository $repository)
+    {
+        $classroom = $repository->find($id);
+       $students= $repo->getStudentsByClassroom($id);
+        return $this->render("student/showClassroom.html.twig",array(
+            'showClassroom'=>$classroom,
+            'tabStudent'=>$students
+        ));
     }
 }

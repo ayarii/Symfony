@@ -1,0 +1,10 @@
+id: {{ showClassroom.id }}
+name: {{ showClassroom.name }}
+description: {{ showClassroom.description }}
+<h3>List Student </h3>
+{% for  s in tabStudent %}
+nce: {{ s.nce }}
+username: {{ s.username }}
+moyenne: {{ s.moyenne }}
+    <br>
+{% endfor %}

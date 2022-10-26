@@ -1,3 +1,4 @@
+{{ form(searchForm) }}
 <a href="{{ path('add2') }}">Add Student</a>
 <h4>List Student</h4>
 {% for s in  tabStudent %}
@@ -6,5 +7,20 @@
     moyenne: {{ s.moyenne }}
     <a href="{{ path('update',{'nce':s.nce}) }}">Update</a>
     <a href="{{ path('remove',{'nce':s.nce}) }}">Remove</a>
+    <br>
+{% endfor %}
+
+<h1 style="color: coral">List Students order By</h1>
+{% for i in sortByMoyenne %}
+nce: {{ i.nce }}
+username: {{ i.username }}
+moyenne: {{ i.moyenne }}
+<br>
+{% endfor %}
+<h1 style="color: deeppink">Top Students</h1>
+{% for i in topStudents %}
+    nce: {{ i.nce }}
+    username: {{ i.username }}
+    moyenne: {{ i.moyenne }}
     <br>
 {% endfor %}

@@ -1,0 +1,9 @@
+Classroom: #{{ classroom.id }} {{ classroom.name }}
+<br>
+<h5>List Students</h5>
+{% for s in students %}
+    username:{{ s.username }}
+    moyenne: {{ s.moyenne }}
+    classroom: {{ s.classroom.name }}
+    <br>
+{% endfor %}

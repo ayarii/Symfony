@@ -19,6 +19,9 @@ class Student
     #[ORM\JoinColumn(onDelete: "CASCADE")]
     private ?Classroom $classroom = null;
 
+    #[ORM\Column]
+    private ?float $moyenne = null;
+
     /**
      * @return string|null
      */
@@ -56,6 +59,18 @@ class Student
     public function setClassroom(?Classroom $classroom): self
     {
         $this->classroom = $classroom;
+
+        return $this;
+    }
+
+    public function getMoyenne(): ?float
+    {
+        return $this->moyenne;
+    }
+
+    public function setMoyenne(float $moyenne): self
+    {
+        $this->moyenne = $moyenne;
 
         return $this;
     }

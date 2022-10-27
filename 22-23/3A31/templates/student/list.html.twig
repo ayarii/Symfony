@@ -1,10 +1,26 @@
+{{ form(searchStudent) }}
 <a href="#">Add student</a>
 <h5>List Student</h5>
 {% for s in tabStudent %}
     nce: {{ s.nce }}
     username:{{ s.username }}
-    classroom: {{ s.classroom }}
+    classroom: {{ s.classroom.name }}
     <a href="#">Update</a>
     <a href="#">Delete</a>
+    <br>
+{% endfor %}
+
+<h5>Sort By NCE</h5>
+{% for s in sortByNce %}
+    nce: {{ s.nce }}
+    username:{{ s.username }}
+    classroom: {{ s.classroom.name }}
+    <br>
+{% endfor %}
+
+<h5 style="color: coral">Top Students</h5>
+{% for s in topStudents %}
+    username:{{ s.username }}
+    moyenne: {{ s.moyenne }}
     <br>
 {% endfor %}

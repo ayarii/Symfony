@@ -1,0 +1,15 @@
+{{ form(formSearch) }}
+<h4>List Student</h4>
+{%  for i in studentsList %}
+    NCE:{{ i.nce }}
+    username:{{ i.username }}
+    classroom:{{ i.classroom.name }}
+    <br>
+{% endfor %}
+<h4>Order By NCE</h4>
+{%  for i in studentsByNCE %}
+    NCE:{{ i.nce }}
+    username:{{ i.username }}
+    classroom:{{ i.classroom.name }}
+    <br>
+{% endfor %}

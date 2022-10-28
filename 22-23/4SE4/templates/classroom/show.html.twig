@@ -1,0 +1,9 @@
+Id: {{ classroom.id }}
+name: {{ classroom.name }}
+<h5>List Students</h5>
+
+{% for i in studentsByClassroom %}
+    NCE:{{ i.nce }}
+    username:{{ i.username }}
+    classroom:{{ i.classroom.name }}
+{% endfor %}

@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Student;
+use App\Form\SearchStudentType;
 use App\Form\StudentType;
+use App\Repository\StudentRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,6 +37,29 @@ class StudentController extends AbstractController
          }
        // return $this->render('student/add.html.twig',array("formStudent"=>$form->createView()));
          return $this->renderForm('student/add.html.twig',array("formStudent"=>$form));
+    }
 
+    #[Route('/listStudent', name: 'app_listStudent')]
+    public function listStudent(Request $request,StudentRepository  $repository)
+    {
+        $students= $repository->findAll();
+        $studentsByNCE= $repository->sortByNCE();
+        $formSearch= $this->createForm(SearchStudentType::class);
+         $formSearch->handleRequest($request);
+        if($formSearch->isSubmitted()){
+            $nce= $formSearch->get('nce')->getData();
+           $result= $repository->searchStudent($nce);
+            return $this->renderForm("student/list.html.twig",array(
+                'studentsList'=>$result,
+                'studentsByNCE'=>$studentsByNCE,
+                'formSearch'=>$formSearch
+            ));
+        }
+        return $this->renderForm("student/list.html.twig",array(
+            'studentsList'=>$students,
+            'studentsByNCE'=>$studentsByNCE,
+            'formSearch'=>$formSearch
+
+        ));
     }
 }

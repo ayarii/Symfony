@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\StudentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use PHPUnit\Util\Exception;
 
 #[ORM\Entity(repositoryClass: StudentRepository::class)]
 class Student
@@ -72,5 +73,12 @@ class Student
         $this->classroom = $classroom;
 
         return $this;
+    }
+
+    public function verifMoyenne()
+    {
+        if($this->getMoyenne()<0){
+            throw new Exception('La moyenne ne peut pas être nulle.');
+        }
     }
 }

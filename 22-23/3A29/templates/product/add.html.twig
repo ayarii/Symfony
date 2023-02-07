@@ -1,3 +1,5 @@
+{% extends 'base.html.twig' %}
+{% block content %}
 <h1>Add Product</h1>
 {{ form_start(formProduct,{'attr':{'novalidate':'novalidate'}})}}
 {{ form_label(formProduct.title) }}
@@ -8,3 +10,4 @@
 {{ form_widget(formProduct.price) }}
 {{ form_errors(formProduct.price) }}
 {{ form_end(formProduct) }}
+{% endblock %}

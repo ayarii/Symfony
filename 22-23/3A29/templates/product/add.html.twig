@@ -1,0 +1,10 @@
+<h1>Add Product</h1>
+{{ form_start(formProduct,{'attr':{'novalidate':'novalidate'}})}}
+{{ form_label(formProduct.title) }}
+{{ form_widget(formProduct.title) }}
+{{ form_errors(formProduct.title) }}
+<br>
+{{ form_label(formProduct.price) }}
+{{ form_widget(formProduct.price) }}
+{{ form_errors(formProduct.price) }}
+{{ form_end(formProduct) }}

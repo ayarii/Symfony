@@ -107,7 +107,7 @@ class StudentController extends AbstractController
         $student= new Student();
         $form= $this->createForm(StudentType::class,$student);
         $form->handleRequest($request) ;
-        if ($form->isSubmitted()){
+        if ($form->isSubmitted()&&$form->isValid()){
             $repository->add($student,true);
             return  $this->redirectToRoute("list_student");
         }

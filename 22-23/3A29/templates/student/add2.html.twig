@@ -1,1 +1,40 @@
-{{ form(studentForm) }}
+{% extends 'baseFront.html.twig' %}
+{% block title %} Add student {% endblock %}
+{% block content %}
+    <br><br><br><br>
+    {#{{ form(studentForm) }}#}
+
+    {{ form_start(studentForm, {'attr': {'novalidate': 'novalidate'}}) }}
+{{ form_label(studentForm.nce) }}
+{{ form_widget(studentForm.nce) }}
+{{ form_errors(studentForm.nce) }}
+<br>
+{{ form_label(studentForm.username) }}
+{{ form_widget(studentForm.username) }}
+{{ form_errors(studentForm.username) }}
+
+<br>
+{{ form_label(studentForm.moyenne) }}
+{{ form_widget(studentForm.moyenne) }}
+{{ form_errors(studentForm.moyenne) }}
+
+<br>
+{{ form_label(studentForm.classroom) }}
+{{ form_widget(studentForm.classroom) }}
+{{ form_errors(studentForm.classroom) }}
+
+{{ form_end(studentForm) }}
+{#<h1>Add Student</h1>
+{{ form_start(studentForm, {'attr': {'novalidate': 'novalidate'}}) }}
+{{ form_label(studentForm.nce) }}
+{{ form_widget(studentForm.nce) }}
+{{ form_errors(studentForm.nce) }}
+{{ form_label(studentForm.username) }}
+{{ form_widget(studentForm.username) }}
+{{ form_label(studentForm.moyenne) }}
+{{ form_widget(studentForm.moyenne) }}
+{{ form_label(studentForm.classroom) }}
+{{ form_widget(studentForm.classroom) }}
+{{ form_end(studentForm) }}#}
+
+{% endblock %}

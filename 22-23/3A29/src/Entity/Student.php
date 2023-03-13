@@ -5,18 +5,23 @@ namespace App\Entity;
 use App\Repository\StudentRepository;
 use Doctrine\ORM\Mapping as ORM;
 use PHPUnit\Util\Exception;
-
+use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: StudentRepository::class)]
 class Student
 {
     #[ORM\Id]
     #[ORM\Column]
+    #[Assert\NotBlank(message: "champ obligatoire!")]
     private ?int $nce = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(message:"username required!")]
+    #[Assert\Length(min: 2,max: 4)]
     private ?string $username = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank(message:"moyenne required!")]
+    #[Assert\Positive]
     private ?float $moyenne = null;
 
     #[ORM\ManyToOne(inversedBy: 'students')]

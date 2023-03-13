@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Esprit -{% block title %} {% endblock %}</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{{ asset('Front/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('Front/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="{{ asset('Front/libraries/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('Front/libraries/icofont/icofont.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('Front/libraries/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('Front/libraries/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('Front/libraries/venobox/venobox.css') }}" rel="stylesheet">
+    <link href="{{ asset('Front/libraries/aos/aos.css') }}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{{ asset('Front/css/style.css') }}" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+        <h1 class="logo"><a href="index.html">Esprit</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav><!-- .nav-menu -->
+
+        <div class="header-social-links">
+            <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+            <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+            <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+        </div>
+
+    </div>
+
+</header><!-- End Header -->
+
+<!-- ======= Hero Section ======= -->
+{% block content %}
+{% endblock %}
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Esprit</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
+</footer><!-- End  Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+
+<!-- Libraries JS Files -->
+<script src="{{ asset('Front/libraries/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('Front/libraries/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('Front/libraries/jquery.easing/jquery.easing.min.js') }}"></script>
+<script src="{{ asset('Front/libraries/php-email-form/validate.js') }}"></script>
+<script src="{{ asset('Front/libraries/waypoints/jquery.waypoints.min.js') }}"></script>
+<script src="{{ asset('Front/libraries/counterup/counterup.min.js') }}"></script>
+<script src="{{ asset('Front/libraries/owl.carousel/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('Front/libraries/isotope-layout/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('Front/libraries/venobox/venobox.min.js') }}"></script>
+<script src="{{ asset('Front/libraries/aos/aos.js') }}"></script>
+
+<!-- Template Main JS File -->
+<script src="{{ asset('Front/js/main.js') }}"></script>
+
+</body>
+
+</html>

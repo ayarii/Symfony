@@ -5,19 +5,19 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Esprit-{% block title %}{% endblock %}</title>
+    <title>Esprit -{% block title %} {% endblock %}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="{{ asset('Front/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('Front/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Libraries CSS Files -->
-    <link href="{{ asset('Front/Front/libraries/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('Front/libraries/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('Front/libraries/icofont/icofont.min.css') }}" rel="stylesheet">
     <link href="{{ asset('Front/libraries/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('Front/libraries/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
@@ -39,14 +39,15 @@
         <h1 class="logo"><a href="index.html">Esprit</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
 
+
         <nav class="nav-menu d-none d-lg-block">
             <ul>
                 <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="{{ path('addStudent2') }}">Add Student</a></li>
-                <li><a href="{{ path('list_student') }}">List Student</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav><!-- .nav-menu -->
 

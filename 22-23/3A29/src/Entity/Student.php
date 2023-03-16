@@ -11,7 +11,9 @@ class Student
 {
     #[ORM\Id]
     #[ORM\Column]
-    #[Assert\NotBlank(message: "champ obligatoire!")]
+    #[Assert\NotBlank(message: 'nce obligatoire!')]
+    #[Assert\Length(min:2,max: 10)]
+    #[Assert\Positive]
     private ?int $nce = null;
 
     #[ORM\Column(length: 50)]

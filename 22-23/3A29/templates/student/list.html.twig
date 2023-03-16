@@ -1,3 +1,6 @@
+{% extends 'baseFront.html.twig' %}
+{% block title %}List Student {% endblock %}
+{% block content %}
 {{ form(searchForm) }}
 <a href="{{ path('add2') }}">Add Student</a>
 <h4>List Student</h4>
@@ -24,3 +27,4 @@ moyenne: {{ i.moyenne }}
     moyenne: {{ i.moyenne }}
     <br>
 {% endfor %}
+{% endblock %}

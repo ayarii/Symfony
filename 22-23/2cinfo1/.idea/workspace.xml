@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="718e61c4-58f5-401c-89f3-b34289818718" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ClubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClubController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/StudentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/StudentRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../3A31/.idea/3A31.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../3A31/.idea/3A31.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../4SE4/src/Repository/StudentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/../4SE4/src/Repository/StudentRepository.php" afterDir="false" />
     </list>
@@ -175,7 +171,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/xampp2/htdocs/Symfony/22-23/2cinfo1",
+    "last_opened_file_path": "C:/xampp2/htdocs/Symfony/22-23/3A32",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -211,6 +207,7 @@
       <workItem from="1665683071551" duration="5773000" />
       <workItem from="1665748416477" duration="1338000" />
       <workItem from="1665771731317" duration="3148000" />
+      <workItem from="1665989631136" duration="954000" />
     </task>
     <servers />
   </component>

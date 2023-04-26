@@ -1,0 +1,8 @@
+<h1 style="color: red">Show Student</h1>
+<h3>Moyenne de {{ variable1 }} est {{ variable2 }}</h3>
+<h1>La liste des formations</h1>
+{% for f in tabFormations %}
+    ref : {{ f.ref }}
+    titre: {{ f.Titre|upper }}
+    <br>
+{% endfor %}

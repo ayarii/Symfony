@@ -1,8 +1,42 @@
+{% set s = 0 %}
+
 <h1 style="color: red">Show Student</h1>
 <h3>Moyenne de {{ variable1 }} est {{ variable2 }}</h3>
+<img src="{{ asset('images/google.jpg') }}">
+
 <h1>La liste des formations</h1>
-{% for f in tabFormations %}
-    ref : {{ f.ref }}
-    titre: {{ f.Titre|upper }}
-    <br>
+{% if tabFormations is empty %}
+<h4>Pas de formation</h4>
+{% else %}
+<table border="1">
+    <tr>
+        <td>Ref</td>
+        <td>Titre</td>
+        <td>Description</td>
+        <td>nb_participants</td>
+        <td>Participation</td>
+    </tr>
+{% for i in tabFormations %}
+    <tr>
+        <td>{{ i.ref|upper }}</td>
+        <td>{{ i.Titre|upper }}</td>
+        <td>{{ i.Description }}</td>
+        <td>{{ i.nb_participants }}</td>
+        {% set  s= s+i.nb_participants %}
+        <td>
+            {% if i.nb_participants==0 %}
+            <a href="#">Participer</a>
+            {% else %}
+                complet
+                {% endif %}
+        </td>
+    </tr>
 {% endfor %}
+
+</table>
+{% endif %}
+Nombre dre formation {{ tabFormations|length }}
+NBR participent
+<h1>        {{ s }}
+</h1>
+

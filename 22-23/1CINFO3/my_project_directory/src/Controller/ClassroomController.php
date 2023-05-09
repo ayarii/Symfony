@@ -44,7 +44,7 @@ class ClassroomController extends AbstractController
       #  $em= $this->getDoctrine()->getManager();
         $em=$doctrine->getManager();
         $em->remove($classroom);
-        #$em->flush();
+        $em->flush();
         return $this->redirectToRoute("app_listclassroom");
     }
 
@@ -72,6 +72,25 @@ class ClassroomController extends AbstractController
             return $this->redirectToRoute("app_listclassroom");
         }
         return $this->render("classroom/add.html.twig",
+            array("formlaireClassroom"=>$formClassroom->createView()));
+
+
+    }
+
+
+    #[Route('/updateclassroom/{id}', name: 'app_updateclassroom')]
+    public function updateClassroom(ClassroomRepository $repository,$id,ManagerRegistry $doctrine,Request $request)
+    {
+        $classroom= $repository->find($id);
+        $formClassroom= $this->
+        createForm(ClassroomType::class,$classroom);
+        $formClassroom->handleRequest($request);
+        if($formClassroom->isSubmitted() ){
+            $em= $doctrine->getManager();
+            $em->flush();
+            return $this->redirectToRoute("app_listclassroom");
+        }
+        return $this->render("classroom/update.html.twig",
             array("formlaireClassroom"=>$formClassroom->createView()));
 
 

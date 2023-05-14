@@ -2,7 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Student;
+use App\Form\StudentType;
+use App\Repository\StudentRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -39,7 +44,31 @@ class StudentController extends AbstractController
                'tabFormations'=>$formations));
     }
 
+    #[Route('/addStudent', name: 'add_student')]
+    public function addStudent(Request $request,ManagerRegistry $doctrine)
+    {
+        $student= new Student();
+        $form= $this->createForm(StudentType::class,$student);
+        $form->handleRequest($request);
+        if($form->isSubmitted()){
+           $em= $doctrine->getManager();
+           $em->persist($student);
+           $em->flush();
+           return $this->redirectToRoute("add_student");
+       }
+        return $this->render("student/add.html.twig",
+            array('formStudent'=>$form->createView()));
 
+    }
 
-
+    #[Route('/listStudents', name: 'list_student')]
+    public function listStudents(StudentRepository $repository)
+    {
+        //la liste des étudiants
+       // $students= $repository->findAll();
+        // la liste des étudiants ordonnée par Id
+        $students= $repository->orderByID();
+        return $this->render("student/list.html.twig",
+            array("listStudents"=>$students));
+    }
 }

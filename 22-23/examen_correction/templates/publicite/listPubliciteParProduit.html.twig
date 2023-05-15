@@ -1,0 +1,19 @@
+
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>titre</td>
+        <td>dateDebut</td>
+        <td>type</td>
+        <td>produit</td>
+    </tr>
+    {% for p in tabPublicites %}
+        <tr>
+            <td>  {{ p.id }}</td>
+            <td> {{ p.titre|upper }}</td>
+            <td> {{ p.dateDebut|date }}</td>
+            <td> {{ p.type }}</td>
+            <td> {{ p.produit }}</td>
+        </tr>
+    {% endfor %}
+</table>

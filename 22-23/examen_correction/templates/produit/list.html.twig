@@ -1,0 +1,20 @@
+<h1>Liste des produit</h1>
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>nom</td>
+        <td>Actions</td>
+    </tr>
+
+
+    {% for p in tabProduit %}
+        <tr>
+            <td> id: {{ p.id }}</td>
+            <td> name: {{ p.nom }}</td>
+
+            <td>
+                <a href="{{ path('app_deleteProduit',{'id':p.id}) }}">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>

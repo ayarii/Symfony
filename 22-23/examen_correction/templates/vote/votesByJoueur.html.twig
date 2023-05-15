@@ -1,0 +1,30 @@
+<h3>Votes du joueur {{ joueur.nom }}</h3>
+{% set totale=0 %}
+            {% for v in votes %}
+                {% set totale = totale + v.nombreVote %}
+            {% endfor %}
+                {% if votes is empty %}
+                    <h5>Pas de vote</h5>
+                {% else %}
+                    <table border="1">
+                        <thead>
+                        <tr>
+                            <th>Date vote</th>
+                            <th>Note vote</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for v in votes %}
+                            <tr>
+                                <td>{{ v.date|date }}</td>
+                                <td>{{ v.nombreVote }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% set moyenne =0 %}
+                    {% if totale != 0 %}
+                        {% set moyenne =  totale / votes|length %}
+                    {% endif %}
+                    <h5>Moyenne vote : {{ moyenne }}</h5>
+                {% endif %}

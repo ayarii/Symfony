@@ -1,0 +1,41 @@
+
+    <h3>Liste des joueurs</h3>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Equipe</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for j in joueurs %}
+            <tr>
+                <td>{{j.nom}}</td>
+                <td>{{j.equipe}}</td>
+                <td><a href="{{ path('app_vote_byjoueur',{'id':j.id}) }}">Détails vote</a></td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        </div>
+
+        <h3>Ajouter vote</h3>
+        {{ form_start(form) }}
+        <table>
+            <tr>
+                <td>{{ form_label(form.joueur) }}</td>
+                <td>{{ form_widget(form.joueur) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.nombreVote,'Note vote ') }}</td>
+                <td>{{ form_widget(form.nombreVote) }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>{{ form_widget(form.vote) }}</td>
+            </tr>
+        </table>
+        {{ form_end(form) }}

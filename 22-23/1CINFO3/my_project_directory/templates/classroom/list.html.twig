@@ -2,22 +2,15 @@
 <table border="1">
     <tr>
         <td>Id</td>
-        <td>Title</td>
-        <td>Description</td>
-        <td>Nb_Student</td>
+        <td>Nom</td>
         <td>Actions</td>
     </tr>
-
-
     {% for c in tabClassroom %}
         <tr>
             <td> id: {{ c.id }}</td>
-            <td> name: {{ c.titleClassroom }}</td>
-            <td> description: {{ c.description }}</td>
-            <td> nbrStudent: {{ c.nbrStudent }}</td>
+            <td> name: {{ c.nom }}</td>
             <td>
-                <a href="{{ path('app_deleteclassroom',{'id':c.id}) }}">Delete</a>
-                <a href="{{ path('app_updateclassroom',{'id':c.id}) }}">Update</a>
+                <a href="{{ path('app_deleteProduit',{'id':c.id}) }}">Delete</a>
             </td>
         </tr>
     {% endfor %}

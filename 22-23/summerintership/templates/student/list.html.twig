@@ -1,0 +1,13 @@
+<h1>List Students</h1>
+<a href="{{ path('app_addstudent') }}">add Student</a>
+<br>
+{% if  tabStudent is empty %}
+<h5 style="color: red">Tab vide</h5>
+{% else %}
+{% for s in tabStudent %}
+    ref: {{ s.ref }}
+    name: {{ s.name|upper }}
+    <br>
+{% endfor %}
+{% endif %}
+Nbr Students: {{ tabStudent|length }}

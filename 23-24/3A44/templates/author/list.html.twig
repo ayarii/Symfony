@@ -1,0 +1,18 @@
+<h1>List Authors</h1>
+
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Books</td>
+    </tr>
+    {% for author in tabAuthors %}
+        <tr>
+            <td>{{  author.id}}</td>
+            <td>{{ author.username }}</td>
+            <td>{{ author.email }}</td>
+            <td> {{ author.nb_books }}</td>
+        </tr>
+    {% endfor %}
+</table>

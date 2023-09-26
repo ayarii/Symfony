@@ -28,7 +28,6 @@ class AuthorController extends AbstractController
     public function listAuthors()
     {
         $authors = array(
-            array('id' => 1, 'username' => ' Victor Hugo','email'=> 'victor.hugo@gmail.com', 'nb_books'=> 100),
             array ('id' => 2, 'username' => 'William Shakespeare','email'=>
                 'william.shakespeare@gmail.com','nb_books' => 200),
             array('id' => 3, 'username' => ' Taha Hussein','email'=> 'taha.hussein@gmail.com','nb_books' => 300),

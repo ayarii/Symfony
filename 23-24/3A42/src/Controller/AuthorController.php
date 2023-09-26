@@ -32,7 +32,6 @@ class AuthorController extends AbstractController
                 'william.shakespeare@gmail.com','nb_books' => 200),
             array('id' => 3, 'username' => ' Taha Hussein','email'=> 'taha.hussein@gmail.com','nb_books' => 300),
         );
-
         return $this->render("author/list.html.twig",
             array('tabAuthors'=>$authors));
     }

@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Author;
+use App\Repository\AuthorRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -34,5 +37,52 @@ class AuthorController extends AbstractController
         );
         return $this->render("author/list.html.twig",
             array('tabAuthors'=>$authors));
+    }
+
+    #[Route('/listAuthor', name: 'list_authors')]
+    public function list(AuthorRepository $repository)
+    {
+        $authors= $repository->findAll();
+
+        return $this->render("author/authors.html.twig",
+            array('tabAuthors'=>$authors));
+    }
+
+    #[Route('/addAuthor', name: 'addAuthor')]
+    public function addAuthor(ManagerRegistry $managerRegistry)
+    {
+       $author= new Author();
+       $author->setEmail("author4@gmail.com");
+       $author->setUsername("author4");
+       #$em= $this->getDoctrine()->getManager();
+        $em= $managerRegistry->getManager();
+        $em->persist($author);
+        $em->flush();
+        return $this->redirectToRoute("list_authors");
+
+    }
+
+    #[Route('/update/{id}', name: 'updateAuthor')]
+    public function updateAuthor($id,AuthorRepository $repository,ManagerRegistry $managerRegistry)
+    {
+        $author= $repository->find($id);
+        $author->setEmail("author5@gmail.com");
+        $author->setUsername("author5");
+        #$em= $this->getDoctrine()->getManager();
+        $em= $managerRegistry->getManager();
+        $em->flush();
+        return $this->redirectToRoute("list_authors");
+    }
+
+    #[Route('/remove/{id}', name: 'remove')]
+
+    public function deleteAuthor(ManagerRegistry $managerRegistry,$id,AuthorRepository $repository)
+    {
+        $author= $repository->find($id);
+        $em= $managerRegistry->getManager();
+        $em->remove($author);
+        $em->flush();
+        return $this->redirectToRoute("list_authors");
+
     }
 }

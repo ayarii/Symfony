@@ -17,7 +17,7 @@
             <td> {{ i.username|upper }}</td>
             <td>{{ i.email }}</td>
             <td> {{ i.nb_books }}</td>
-            <td> <a href="{{ path('app_author') }}">Show more +</a></td>
+            <td> <a href="{{ path('author_details', {'id': author.id}) }}">Show more +</a></td>
             {% set  x= x+i.nb_books   %}
         </tr>
     {% endfor %}

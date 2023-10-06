@@ -1,0 +1,29 @@
+<h1>List of Authors</h1>
+{{ variable }}
+{% set sum=0 %}
+{% if  tabAuthors is empty%}
+<h5>Tab vide</h5>
+{% else %}
+<table border="1">
+    <tr>
+        <td>id</td>
+        <td>username</td>
+        <td>email</td>
+        <td>nb_books</td>
+        <td>Action</td>
+    </tr>
+{% for i in tabAuthors %}
+    <tr>
+        <td>{{ i.id }}</td>
+        <td> {{ i.username|upper }}</td>
+        <td> {{ i.email }}</td>
+        <td>{{ i.nb_books }}</td>
+        <td><a href="{{ path('app_contact') }}">Show Books +</a></td>
+        {% set  sum = sum+i.nb_books %}
+    </tr>
+{% endfor %}
+</table>
+{% endif %}
+<h3>Nb_Total_Authors: {{ tabAuthors|length }}</h3>
+<h3>Nb_Total_Books: {{ sum }}</h3>
+<img src="{{ asset('imgs/symfonylive.jpg') }}" alt="symfonylive" width="100px" height="100px">

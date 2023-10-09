@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Author;
+use App\Form\AuthorType;
 use App\Repository\AuthorRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -62,6 +64,26 @@ class AuthorController extends AbstractController
         $em->persist($author);
         $em->flush();
         return $this->redirectToRoute("list_authors");
+    }
+
+    #[Route('/add', name: 'add')]
+    public function add(Request $request,ManagerRegistry $managerRegistry)
+    {
+        $author= new Author();
+        $form = $this->createForm(AuthorType::class,$author);
+        $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $em= $managerRegistry->getManager();
+            $em->persist($author);
+            $em->flush();
+            return $this->redirectToRoute("list_authors");
+        }
+        //     1ère methode
+        /*        return $this->render("author/add.html.twig",
+                    array('authorForm'=>$form->createView()));*/
+//        2ème méthode
+        return $this->renderForm("author/add.html.twig",
+            array('authorForm'=>$form));
     }
 
     #[Route('/delete/{id}', name: 'delete')]

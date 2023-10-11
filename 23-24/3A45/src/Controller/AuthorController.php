@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Author;
+use App\Repository\AuthorRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,4 +34,53 @@ class AuthorController extends AbstractController
                 'tabAuthors'=>$authors
                 ));
     }
+
+    #[Route('/listAuthor', name: 'authors')]
+    public function list(AuthorRepository $repository)
+    {
+        $authors = $repository->findAll();
+        return $this->render("author/listAuthors.html.twig",
+            array(
+                'tabAuthors'=>$authors
+            ));
 }
+
+    #[Route('/add', name: 'add_authors')]
+    public function addAuthor(ManagerRegistry $managerRegistry)
+    {
+        $author= new Author();
+        $author->setEmail("author6@gmail.com");
+        $author->setUsername("author6");
+       // $em= $this->getDoctrine()->getManager();
+        $em= $managerRegistry->getManager();
+        $em->persist($author);
+        $em->flush();
+        return $this->redirectToRoute("authors");
+
+   }
+
+
+    #[Route('/update/{id}', name: 'update_authors')]
+    public function updateAuthor($id,AuthorRepository $repository,ManagerRegistry $managerRegistry)
+    {
+        $author= $repository->find($id);
+        $author->setEmail("author7@gmail.com");
+        $author->setUsername("author7");
+        // $em= $this->getDoctrine()->getManager();
+        $em= $managerRegistry->getManager();
+        $em->flush();
+        return $this->redirectToRoute("authors");
+    }
+
+    #[Route('/remove/{id}', name: 'remove_authors')]
+    public function deleteAuthor(AuthorRepository $repository,$id,
+                                 ManagerRegistry $managerRegistry)
+    {
+        $author= $repository->find($id);
+        $em = $managerRegistry->getManager();
+        $em->remove($author);
+        $em->flush();
+        return $this->redirectToRoute("authors");
+    }
+}
+

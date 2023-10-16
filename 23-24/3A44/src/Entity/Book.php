@@ -25,6 +25,9 @@ class Book
     #[ORM\Column(length: 255)]
     private ?string $category = null;
 
+
+
+
     #[ORM\ManyToOne(inversedBy: 'books')]
     private ?Author $author = null;
 
@@ -103,4 +106,5 @@ class Book
 
         return $this;
     }
+
 }

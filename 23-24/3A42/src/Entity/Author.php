@@ -21,6 +21,10 @@ class Author
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
+
+    #[ORM\Column]
+    private ?int $nbrBooks = null;
+
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Book::class)]
     private Collection $books;
 
@@ -86,5 +90,26 @@ class Author
         }
 
         return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getNbrBooks(): ?int
+    {
+        return $this->nbrBooks;
+    }
+
+    /**
+     * @param int|null $nbrBooks
+     */
+    public function setNbrBooks(?int $nbrBooks): void
+    {
+        $this->nbrBooks = $nbrBooks;
+    }
+
+    public function __toString()
+    {
+        return(string)$this->getUsername();
     }
 }

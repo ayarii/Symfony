@@ -1,0 +1,37 @@
+<table align="center" border="1">
+    <tr>
+        <td>Ref</td>
+        <td>Title</td>
+        <td>Category</td>
+        <td>Author</td>
+        <td>PublicationDate</td>
+        <td>Status</td>
+        <td>Action</td>
+    </tr>
+    {% set  nb_published = 0 %}
+    {% set  nb_unpublished = 0 %}
+    {% for book in books %}
+        {% if book.published == true %}
+            <tr>
+                <td>{{ book.ref }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.category }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.datePublication|date }}</td>
+                <td>{{ book.published }}</td>
+                <td>
+                    <a href="{{ path('book_edit', { ref: book.ref }) }}">edit</a>
+{#                    <a href="{{ path('book_delete', { ref: book.ref }) }}">delete</a>#}
+{#                    <a href="{{ path('book_details', { ref: book.ref }) }}">show</a>#}
+                </td>
+            </tr>
+            {% set nb_published= nb_published+1 %}
+        {% else %}
+            {% set nb_unpublished= nb_unpublished+1 %}
+        {% endif %}
+        {% else %}
+        <h1> No Books found</h1>
+    {% endfor %}
+</table>
+<h4>Books Published: {{ nb_published }}</h4>
+<h4>Books unpublished: {{ nb_unpublished }}</h4>

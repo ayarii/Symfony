@@ -19,6 +19,9 @@ class Book
     #[ORM\Column]
     private ?bool $published = null;
 
+    #[ORM\Column]
+    private ?string $category = null;
+
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $datePublication = null;
 
@@ -88,4 +91,21 @@ class Book
 
         return $this;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param string|null $category
+     */
+    public function setCategory(?string $category): void
+    {
+        $this->category = $category;
+    }
+
 }

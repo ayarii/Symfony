@@ -1,0 +1,40 @@
+<a href="{{ path('add_book') }}">Add Book</a>
+{% set nb_published= 0 %}
+{% set nb_unpublished= 0 %}
+    {% if  tabBooks is empty%}
+   <h1>Not Found! </h1>
+    {% else %}
+<table border="1" align="center">
+    <tr>
+        <td>Ref</td>
+        <td>Title</td>
+        <td>Published</td>
+        <td>PublicationDate</td>
+        <td>Category</td>
+        <td>Author</td>
+        <td>Action</td>
+    </tr>
+
+{% for book in tabBooks %}
+    {% if book.published == true %}
+    {% set  nb_published= nb_published+1 %}
+    {% else %}
+   {% set  nb_unpublished= nb_unpublished+1 %}
+   {% endif %}
+<tr>
+    <td>{{ book.ref }}</td>
+    <td>{{ book.title|upper }}</td>
+    <td>{{ book.published }}</td>
+    <td>{{ book.publicationDate|date }}</td>
+    <td>{{ book.category }}</td>
+    <td>{{ book.Author }}</td>
+    <td><a href="">Edit</a>
+        <a href="">Delete</a>
+        <a href="">Show</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+<h4>Nb_Books:  {{ tabBooks|length }}</h4>
+<h4>Nb_Published:  {{ nb_published }}</h4>
+<h4>Nb_Unpublished:  {{ nb_unpublished }}</h4>

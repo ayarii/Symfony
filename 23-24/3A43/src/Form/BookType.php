@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Book;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,9 +15,11 @@ class BookType extends AbstractType
         $builder
             ->add('ref')
             ->add('title')
-            ->add('published')
+           # ->add('published')
             ->add('publicationDate')
             ->add('author')
+            ->add('category')
+            ->add('submit',SubmitType::class)
         ;
     }
 

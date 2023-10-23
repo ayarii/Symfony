@@ -45,4 +45,10 @@ class AuthorRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function sortByUsername(): array
+    {
+        $qb=  $this->createQueryBuilder('a');
+        $qb->orderBy('a.username', 'DESC');
+        return   $qb->getQuery()->getResult();
+    }
 }

@@ -1,9 +1,10 @@
 <h1 align="center">List books</h1>
+{{ form(searchForm) }}
 {% if  books is empty %}
     <h1>No Books found</h1>
 {% else %}
-    {% set published_Book=0 %}
-    {% set unpublished_Book=0 %}
+{#    {% set published_Book=0 %}#}
+{#    {% set unpublished_Book=0 %}#}
     <table align="center" border="1">
         <tr>
             <td>Ref</td>
@@ -12,15 +13,17 @@
             <th>Published</th>
             <th>Category</th>
             <th>Author</th>
+{#
             <th>Actions</th>
+#}
         </tr>
         {% for book in books %}
 
-            {% if book.published == true %}
+         {#   {% if book.published == true %}
                 {% set published_Book=published_Book+1 %}
             {% else %}
                 {% set unpublished_Book=unpublished_Book+1 %}
-            {% endif %}
+            {% endif %}#}
             <tr>
                 <td>{{ book.ref }}</td>
                 <td>{{ book.title }}</td>
@@ -28,15 +31,17 @@
                 <td>{{ book.published }}</td>
                 <td>{{ book.category }}</td>
                 <td>{{ book.author.username }}</td>
-                <td>
+               {# <td>
                     <a href="{{ path('update_book', { ref: book.ref }) }}">edit</a>
                     <a href="#">delete</a>
                     <a href="{{ path('show_book', { ref: book.ref }) }}">show</a>
-                </td>
+                </td>#}
             </tr>
         {% endfor %}
     </table>
 {% endif %}
+{#
 <a align="center" href=" {{path('add_book')}}">Add Book</a>
 <h5>published_Book = {{ published_Book }}</h5>
 <h5>unpublished_Book = {{ unpublished_Book }}</h5>
+#}

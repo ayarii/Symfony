@@ -26,15 +26,17 @@ class BookController extends AbstractController
     {
         $book = new Book();
         //  $book->setTitle("book1");
-       //   $book->setPublished(true);
-      //    $book->setRef("1234");
-     //    $book->setCategory("category1");
+        //   $book->setPublished(true);
+        //    $book->setRef("1234");
+        //    $book->setCategory("category1");
         $form = $this->createForm(BookType::class, $book);
-         $form->handleRequest($request);
+        $form->handleRequest($request);
         if ($form->isSubmitted()) {
             /*1ere methode*/
             // $em= $this->getDoctrine()->getManager();
             /*2eme methode*/
+            $nbBooks=$book->getAuthor()->getNbBooks();
+            $nbBooks=$book->getAuthor()->setNbrBooks($nbBooks+1);
             $em = $managerRegistry->getManager();
             $em->persist($book);
             $em->flush();
@@ -47,8 +49,6 @@ class BookController extends AbstractController
         return $this->renderForm("book/add.html.twig",
             array("formBook" => $form));
     }
-
-
 
     #[Route('/updateBook/{ref}', name: 'update_book')]
     public function updateBook($ref,BookRepository $repository,Request $request,ManagerRegistry $managerRegistry)

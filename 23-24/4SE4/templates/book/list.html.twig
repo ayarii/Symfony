@@ -1,4 +1,30 @@
-{% for book in tabBooks %}
-    {{ book.ref }}
-    <br>
-{% endfor %}
+{% set nbr_Published=0 %}
+{% set nbr_NotPublished=0 %}
+
+<table border="1">
+    <tr>
+        <td>ref</td>
+        <td>title</td>
+        <td>published</td>
+        <td>publicationDate</td>
+        <td>category</td>
+    </tr>
+
+    {% for i in tabBooks %}
+        <tr>
+            <td>{{ i.ref }}</td>
+            <td>{{ i.title}}</td>
+            <td>{{ i.published }}</td>
+            <td>{{ i.publicationDate |date }}</td>
+            <td>{{ i.category }}</td>
+
+        </tr>
+        {%  if i.published==1 %}{
+            {% set nbr_Published=nbr_Published+1 %}
+        {% else %}
+            {% set nbr_NotPublished=nbr_NotPublished+1 %}
+        {% endif %}
+    {% endfor %}
+</table>
+<h1>nombre des books non publier: {{ nbr_NotPublished }}</h1>
+<h1>nbr book publier:{{ nbr_Published }}</h1>

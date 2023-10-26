@@ -45,8 +45,11 @@ class AuthorController extends AbstractController
     public function list(AuthorRepository $repository)
     {
         $authors= $repository->findAll();
+        $authorsByEmail= $repository->showAllAuthorsOrderByEmail();
         return $this->render("author/listAuthors.html.twig",
-            array("tabAuthors"=>$authors));
+            array("tabAuthors"=>$authors,
+                      "authorsByEmail"=>$authorsByEmail
+                ));
     }
 
     #[Route('/addAuthor', name: 'author_add')]

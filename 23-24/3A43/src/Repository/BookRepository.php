@@ -45,4 +45,48 @@ class BookRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function showAllBooksByAuthor($title)
+    {
+        return $this->createQueryBuilder('b')
+            ->join('b.author','a')
+            ->addSelect('a')
+            ->where('b.title LIKE :title')
+            ->setParameter('title', '%'.$title.'%')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findBooksByAuthor($id) {
+        $qb= $this->createQueryBuilder('b')
+            ->join('b.author', 'a')
+            ->where('a.id = :x')
+            ->andWhere('b.publicationDate > :y')
+            ->setParameter('x', $id)
+            ->setParameter('y', '2023-01-01');
+        return $qb->getQuery()
+            ->getResult();
+    }
+
+    public function findByRef(): array
+    {
+        $qb= $this->createQueryBuilder('b')
+            ->setMaxResults(10);
+        return $qb->getQuery()->getResult();
+    }
+
+    function NbBookCategory(){
+        $em=$this->getEntityManager();
+        return $em->createQuery('select count(b) from App\Entity\Book b WHERE b.category=:x')
+            ->setParameter('x','Science Fiction')->getSingleScalarResult();
+    }
+
+    public function searchBook($value)
+    {
+        return $this->createQueryBuilder('b')
+            ->where('b.ref LIKE :value')
+            ->setParameter('value', '%'.$value.'%')
+            ->getQuery()
+            ->getResult();
+    }
 }

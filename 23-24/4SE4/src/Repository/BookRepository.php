@@ -57,11 +57,11 @@ class BookRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function searchBook($value)
+    public function searchBook($ref)
     {
         return $this->createQueryBuilder('b')
-            ->where('b.title LIKE :title')
-            ->setParameter('title', '%'.$value.'%')
+            ->where('b.ref LIKE :x')
+            ->setParameter('x', '%'.$ref.'%')
             ->getQuery()
             ->getResult();
     }

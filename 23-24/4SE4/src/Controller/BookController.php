@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Book;
 use App\Form\BookType;
+use App\Form\SearchBookType;
 use App\Repository\BookRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -66,11 +67,22 @@ class BookController extends AbstractController
     }
 
     #[Route('/listbook', name: 'list_book')]
-    public function listBook(BookRepository $repository)
+    public function listBook(BookRepository $repository,Request $request)
     {
-        $books= $repository->findAll();
+        $form= $this->createForm(SearchBookType::class);
+         $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $ref= $form->getData()->getRef();
+            //var_dump($ref).die();
+            return $this->render("book/list.html.twig",
+                array("tabBooks"=>$repository->searchBook($ref),
+                    "searchForm"=>$form->createView()
+                ));
+        }
         return $this->render("book/list.html.twig",
-            array("tabBooks"=>$books));
+            array("tabBooks"=>$repository->findAll(),
+                   "searchForm"=>$form->createView()
+                ));
     }
 
     #[Route('/deleteBook/{ref}', name: 'delete_book')]
@@ -83,5 +95,12 @@ class BookController extends AbstractController
         //return new Response( "Done");
         return  $this->redirectToRoute("list_book");
 
+    }
+
+
+    #[Route('/listBooksByAuthors/{id}', name: 'list_books_byAuthors')]
+    public function listBooksByAuthors($id,BookRepository  $repository){
+        return $this->render("book/listBooksByAuthors.html.twig",
+        array("tabBooks"=>$repository->findBooksByAuthor($id)));
     }
 }

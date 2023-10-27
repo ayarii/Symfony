@@ -1,6 +1,6 @@
+{{ form(searchForm) }}
 {% set nbr_Published=0 %}
 {% set nbr_NotPublished=0 %}
-
 <table border="1">
     <tr>
         <td>ref</td>
@@ -19,7 +19,7 @@
             <td>{{ i.category }}</td>
 
         </tr>
-        {%  if i.published==1 %}{
+        {%  if i.published==1 %}
             {% set nbr_Published=nbr_Published+1 %}
         {% else %}
             {% set nbr_NotPublished=nbr_NotPublished+1 %}

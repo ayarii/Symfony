@@ -45,4 +45,22 @@ class BookRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function listBooksByAuthor($username)
+    {
+        $qb= $this->createQueryBuilder('b');
+        $qb->join('b.author','a')
+            ->andWhere('b.publicationData > :x')
+            ->andWhere('a.username = :y')
+            ->setParameter('x', '2023-01-01')
+            ->setParameter('y', $username);
+        return $qb->getQuery()->getResult();
+    }
+
+    public function findByRef(): array
+    {
+        $qb= $this->createQueryBuilder('b')
+      //->andWhere('b.exampleField = :val') // ->setParameter('val', $value) ->orderBy('b.ref', 'DESC')
+      ->setMaxResults(10);
+        return $qb->getQuery()->getResult();
+    }
 }

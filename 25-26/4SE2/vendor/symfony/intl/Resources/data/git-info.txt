@@ -1,0 +1,7 @@
+Git information
+===============
+
+URL: https://github.com/unicode-org/icu.git
+Revision: 457157a92aa053e632cc7fcfd0e12f8a943b2d11
+Author: Mihai Nita
+Date: 2025-03-10T19:11:46+00:00

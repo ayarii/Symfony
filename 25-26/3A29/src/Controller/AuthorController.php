@@ -17,6 +17,8 @@ final class AuthorController extends AbstractController
     }
 
 
+
+
     #[Route('/listAuthors', name: 'list_author')]
     public function listAuthors()
     {
@@ -33,4 +35,12 @@ final class AuthorController extends AbstractController
         return $this->render("author/list.html.twig",
         ['nbrAthors'=>$nbr,'fisrtName'=>$title,'tabAuthors'=>$authors]);
     }
+
+
+    #[Route('/author/{id}', name: 'show_author')]
+    public function showAuthor($id)
+    {
+        return $this->render('author/show.html.twig',['id'=>$id]);
+    }
+
 }

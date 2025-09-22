@@ -1,14 +1,18 @@
 <h1>List Of Authors</h1>
 {{ nbrAthors }}
 {{ fisrtName }}
+{% set sum = 0 %}
 <h1>Tab Authors</h1>
-
+{% if tabAuthors is empty %}
+<h5> Tab empty</h5>
+{% else %}
 <table border="1">
    <tr>
       <td>Id</td>
       <td>Username</td>
       <td>Email</td>
       <td>Nbr of Books</td>
+      <td> Details</td>
    </tr>
    {% for x in tabAuthors %}
       <tr>
@@ -16,7 +20,12 @@
       <td>{{ x.username |upper }}</td>
       <td>{{ x.email }}</td>
       <td>{{ x.nb_books }}</td>
+         <td> <a href="{{ path('show_author',{id:x.id}) }}">show</a></td>
+        {% set sum = sum+x.nb_books %}
       </tr>
    {% endfor %}
 </table>
+{% endif %}
+sum = {{ sum }}
 <h4>Nbr Of  Authors = {{ tabAuthors|length }}</h4>
+<a href="{{ path('app_author') }}">Index action Author</a>

@@ -1,5 +1,6 @@
 <h1>List of Authors</h1>
 <p>{{ x }}</p>
+{% set sum = 0 %}
 {% if tabAuthors is empty %}
 <h1>The table is empty</h1>
 {% else %}
@@ -9,20 +10,24 @@
         <th>Username</th>
         <th>Email</th>
         <th>Nbr_Books</th>
+        <th>Show Details</th>
     </tr>
 
     {% for i in tabAuthors %}
         <tr>
       <td>{{ i.id }}</td>
-       <td>{{ i.username }}</td>
+       <td>{{ i.username | upper }}</td>
             <td>{{ i.email }}</td>
             <td>{{ i.nb_books }}</td>
+            <td><a href="#">show+</a></td>
+            {% set sum = sum+ i.nb_books %}
         </tr>
     {% endfor %}
-
 </table>
 {%endif%}
 
+Nbr_Authors = {{ tabAuthors | length }} <br>
+Nbr_Books = {{ sum }}
 
 
 

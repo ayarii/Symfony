@@ -1,0 +1,12 @@
+<h1>List Of Authors</h1>
+{%  if tabAuthors is empty  %}
+<h1>Tab  is empty</h1>
+{% else %}
+{% for x in tabAuthors %}
+
+    {{ x.id }}
+    {{ x.username }}
+    {{ x.email }}<br>
+
+{% endfor %}
+{% endif %}

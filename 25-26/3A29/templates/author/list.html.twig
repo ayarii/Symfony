@@ -12,6 +12,7 @@
       <td>Username</td>
       <td>Email</td>
       <td>Nbr of Books</td>
+      <td>Pictures</td>
       <td> Details</td>
    </tr>
    {% for x in tabAuthors %}
@@ -20,6 +21,7 @@
       <td>{{ x.username |upper }}</td>
       <td>{{ x.email }}</td>
       <td>{{ x.nb_books }}</td>
+         <td><img src="{{ x.picture }}" HEIGHT="40px" width="40px"></td>
          <td> <a href="{{ path('show_author',{id:x.id}) }}">show</a></td>
         {% set sum = sum+x.nb_books %}
       </tr>
@@ -28,4 +30,4 @@
 {% endif %}
 sum = {{ sum }}
 <h4>Nbr Of  Authors = {{ tabAuthors|length }}</h4>
-<a href="{{ path('app_author') }}">Index action Author</a>
+<a href="{{ path('app_author') }}" >Index action Author</a>

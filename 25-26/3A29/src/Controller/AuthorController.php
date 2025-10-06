@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Author;
+use App\Form\AuthorType;
 use App\Repository\AuthorRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -66,5 +68,52 @@ final class AuthorController extends AbstractController
         $em->persist($author);
         $em->flush();
         return $this->redirectToRoute("listauthor");
+    }
+
+    #[Route('/removeAuthor/{id}', name: 'removeauthor')]
+    public function delete(AuthorRepository $repository,$id,ManagerRegistry $doctrine)
+    {
+        $author= $repository->find($id);
+        $em= $doctrine->getManager();
+        $em->remove($author);
+        $em->flush();
+        return $this->redirectToRoute("listauthor");
+    }
+
+
+    #[Route('/ajoutAuteur', name: 'ajout')]
+    public function addWithForm(Request $request,ManagerRegistry $doctrine)
+    {
+        $author = new Author();
+        $form= $this->createForm(AuthorType::class,$author);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $em= $doctrine->getManager();
+            $em->persist($author);
+            $em->flush();
+            return $this->redirectToRoute("listauthor");
+        }
+        return $this->render("author/add.html.twig",
+        ['authorformulaire'=>$form]);
+    }
+
+
+
+
+    #[Route('/updateAuteur/{id}', name: 'update')]
+    public function update($id,AuthorRepository $repository,Request $request,ManagerRegistry $doctrine)
+    {
+        $author = $repository->find($id) ;
+        $form= $this->createForm(AuthorType::class,$author);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $em= $doctrine->getManager();
+            $em->flush();
+            return $this->redirectToRoute("listauthor");
+        }
+        return $this->render("author/update.html.twig",
+            ['authorformulaire'=>$form]);
     }
 }

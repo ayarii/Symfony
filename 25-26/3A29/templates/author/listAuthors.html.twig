@@ -2,11 +2,28 @@
 {%  if tabAuthors is empty  %}
 <h1>Tab  is empty</h1>
 {% else %}
+    <table border="1">
+        <tr>
+            <td>Id</td>
+            <td>Username</td>
+            <td>Email</td>
+            <td>Nb_Books</td>
+            <td>Actions</td>
+        </tr>
 {% for x in tabAuthors %}
+<tr>
 
-    {{ x.id }}
-    {{ x.username }}
-    {{ x.email }}<br>
-
+   <td>{{ x.id }}</td>
+    <td>{{ x.username }}</td>
+    <td>{{ x.email }}</td>
+    <td>{{ x.nbrBooks }}</td>
+    <td><a href="{{ path('removeauthor',{id:x.id}) }}">Delete</a>
+        <a href="#">Show</a>
+        <a href="{{ path('update',{id:x.id}) }}">Update</a>
+    </td>
+</tr>
 {% endfor %}
+    </table>
 {% endif %}
+
+<a href="{{ path('ajout') }}">Add New Author</a>

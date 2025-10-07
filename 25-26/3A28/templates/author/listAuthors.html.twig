@@ -1,0 +1,18 @@
+<table border="1">
+<tr>
+    <td>Id</td>
+    <td>Username</td>
+    <td>NBrBook</td>
+    <td>Action</td>
+</tr>
+{% for i in tab %}
+    <tr>
+        <td>{{ i.id }}</td>
+        <td>{{ i.username }}</td>
+        <td>{{ i.nbrBooks }}</td>
+        <td><a href="#">update</a> <a href="#">show</a>
+            <a href="#">remove</a></td>
+    </tr>
+{% endfor %}
+</table>
+<a href="#">Add new Author</a>

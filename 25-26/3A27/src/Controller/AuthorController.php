@@ -6,6 +6,10 @@ use App\Repository\AuthorRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\Author;
+use App\Form\AuthorType;
+use Symfony\Component\HttpFoundation\Request;
 
 final class AuthorController extends AbstractController
 {
@@ -53,4 +57,33 @@ final class AuthorController extends AbstractController
        return $this->render("author/show.html.twig",['author'=>$author]);
     }
 
+
+    #[Route('/add', name: 'addAuthor')]
+    public function add(ManagerRegistry $doctrine)
+    {
+        $author = new Author();
+        $author->setUsername('asmayari');
+        $author->setEmail('asma.ayari@esprit.tn');
+        $em = $doctrine->getManager();
+        $em->persist($author);
+        $em->flush();
+        return $this->redirectToRoute('list');
+    }
+
+
+    #[Route('/addForm', name: 'addAuthor_form')]
+    public function addWithForm(ManagerRegistry $doctrine,Request $request)
+    {
+        $author = new Author();
+        $formAuthor= $this->createForm(AuthorType::class,$author);
+        $formAuthor->handleRequest($request);
+        if($formAuthor->isSubmitted()){
+            $em = $doctrine->getManager();
+            $em->persist($author);
+            $em->flush();
+            return $this->redirectToRoute('list');
+        }
+        return $this->render('author/add.html.twig',
+        ['formulaire'=>$formAuthor]);
+    }
 }

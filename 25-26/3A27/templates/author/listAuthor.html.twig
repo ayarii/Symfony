@@ -11,8 +11,8 @@
         <td>{{ author.id }}</td>
         <td>{{ author.username }}</td>
         <td>{{ author.email }}</td>
-        <td><a href="{{ path('showAuthor',{id:author.id}) }}">show details</a> <a href="#">update</a> <a href="#">delete</a>  </td>
+        <td><a href="{{ path('showAuthor',{id:author.id}) }}">show details</a> <a href="{{ path('updateAuthor_form',{id:author.id}) }}">update</a> <a href="{{ path('removeAuthor_form',{id:author.id}) }}">delete</a>  </td>
     </tr>
     {% endfor %}
 </table>
-<a href="#">+ Add New Author</a>
+<a href="{{ path('addAuthor_form') }}">+ Add New Author</a>

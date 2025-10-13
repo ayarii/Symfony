@@ -12,7 +12,7 @@ class Book
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $ref = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 200)]
     private ?string $title = null;
@@ -22,6 +22,10 @@ class Book
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
+
+    #[ORM\ManyToOne(inversedBy: 'books',)]
+    #[ORM\JoinColumn(onDelete: 'CASCADE')]
+    private ?Author $author = null;
 
     public function getId(): ?int
     {
@@ -63,4 +67,18 @@ class Book
 
         return $this;
     }
+
+    public function getAuthor(): ?Author
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?Author $author): static
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+
 }

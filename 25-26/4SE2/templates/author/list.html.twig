@@ -1,0 +1,8 @@
+<h1>List of Authors</h1>
+{% for i in tabAuthors %}
+    {{ i.id }} ,
+    {{ i.username }},
+    {{ i.email }},
+    {{ i.nb_books }}
+    <br>
+{% endfor %}

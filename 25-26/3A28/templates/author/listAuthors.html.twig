@@ -10,9 +10,10 @@
         <td>{{ i.id }}</td>
         <td>{{ i.username }}</td>
         <td>{{ i.nbrBooks }}</td>
-        <td><a href="#">update</a> <a href="#">show</a>
-            <a href="#">remove</a></td>
+        <td><a href="{{ path('update_auth',{'id':i.id}) }}">update</a>
+            <a href="{{ path('show_auth',{'id':i.id}) }}">show</a>
+            <a href="{{ path('remove_auth',{'id':i.id}) }}">remove</a></td>
     </tr>
 {% endfor %}
 </table>
-<a href="#">Add new Author</a>
+<a href="{{ path('addForm_auth') }}">Add new Author</a>

@@ -1,0 +1,22 @@
+<h1>List Of Books</h1>
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>Date</td>
+        <td>Published</td>
+        <td>Author</td>
+        <td>Actions</td>
+    </tr>
+
+    {% for book in tabBooks %}
+    <tr>
+        <td>{{ book.id }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.publishedAt|date }}</td>
+        <td>{{ book.published }}</td>
+        <td>{{ book.author }}</td>
+        <td><a href="#">Update</a> <a href="#">Delete</a> <a href="#">show + </a></td>
+    </tr>
+    {% endfor %}
+</table>

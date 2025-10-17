@@ -112,6 +112,5 @@ final class AuthorController extends AbstractController
         $em->remove($author);
         $em->flush();
         return $this->redirectToRoute("list");
-
     }
 }

@@ -1,1 +1,4 @@
-<hA>Index Author</hA>
+<h1>The best Authors</h1>
+{% for author in theBest %}
+    <p>{{ author.name }} - {{ author.email }} - Books: {{ author.books|length }}</p>
+{% endfor %}

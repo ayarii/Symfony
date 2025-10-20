@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Book;
 use App\Form\BookType;
+use App\Form\SearchBookType;
 use App\Repository\BookRepository;
 use Symfony\Bridge\Doctrine\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -42,11 +43,18 @@ final class BookController extends AbstractController
 
     #[Route('/listBook', name: 'list_book')]
 
-    public function list(BookRepository $repository)
+    public function list(BookRepository $repository,Request $request)
     {
         $books= $repository->findAll();
+        $sortBooks= $repository->findBooksBefore2023();
+        $searchForm= $this->createForm(SearchBookType::class);
+        $searchForm->handleRequest($request);
+        if($searchForm->isSubmitted()){
+            $ref = $searchForm->getData()->getRef();
+            $books = $repository->searchBookByRef($ref);
+        }
         return $this->render("book/list.html.twig",
-            ['tabBooks'=>$books]);
+            ['tabBooks'=>$books,'searchForm'=>$searchForm,'sortBook'=>$sortBooks]);
     }
 
 }

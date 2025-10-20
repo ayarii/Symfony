@@ -1,6 +1,40 @@
-{% for i in tabBooks %}
-
-    {{ i.id }}
-    {{ i.title }}
-    {{ i.author }}
-{% endfor %}
+{{ form(searchForm) }}
+<table border="1">
+    <tr>
+        <td>Ref</td>
+        <td>Title</td>
+        <td>Author</td>
+        <td>Action</td>
+    </tr>
+    {% for i in tabBooks %}
+    <tr>
+        <td>   {{ i.ref }}</td>
+        <td>{{ i.title }}</td>
+        <td> {{ i.author }}</td>
+        <td><a href="#">show</a>
+            <a href="#">update</a>
+            <a href="#">delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<h2>Sorted Books</h2>
+<table border="1">
+    <tr>
+        <td>Ref</td>
+        <td>Title</td>
+        <td>Author</td>
+        <td>Action</td>
+    </tr>
+    {% for i in sortBook %}
+        <tr>
+            <td>   {{ i.ref }}</td>
+            <td>{{ i.title }}</td>
+            <td> {{ i.author }}</td>
+            <td><a href="#">show</a>
+                <a href="#">update</a>
+                <a href="#">delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>

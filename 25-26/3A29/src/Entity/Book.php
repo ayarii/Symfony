@@ -10,9 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Book
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $ref = null;
 
     #[ORM\Column(length: 200)]
     private ?string $title = null;
@@ -27,9 +26,20 @@ class Book
     #[ORM\JoinColumn(onDelete: 'CASCADE')]
     private ?Author $author = null;
 
-    public function getId(): ?int
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTime $publicationDate = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $category = null;
+
+    public function getRef(): ?int
     {
-        return $this->id;
+        return $this->ref;
+    }
+
+    public function setRef(?int $ref): void
+    {
+        $this->ref = $ref;
     }
 
     public function getTitle(): ?string
@@ -76,6 +86,30 @@ class Book
     public function setAuthor(?Author $author): static
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getPublicationDate(): ?\DateTime
+    {
+        return $this->publicationDate;
+    }
+
+    public function setPublicationDate(\DateTime $publicationDate): static
+    {
+        $this->publicationDate = $publicationDate;
+
+        return $this;
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(string $category): static
+    {
+        $this->category = $category;
 
         return $this;
     }

@@ -1,8 +1,28 @@
-<h1>List of Authors</h1>
-{% for i in tabAuthors %}
-    {{ i.id }} ,
-    {{ i.username }},
-    {{ i.email }},
-    {{ i.nb_books }}
-    <br>
-{% endfor %}
+{% set sum = 0 %}
+{% if tabAuthors is empty %}
+<h3>The table is empty</h3>
+{% else %}
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>username</th>
+        <th>Email</th>
+        <th>NbBooks</th>
+        <th>Action</th>
+    </tr>
+    {% for i in tabAuthors %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.username |upper }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.nb_books }}</td>
+            <td><a href="#">Show +</a></td>
+            {% set sum = sum+ i.nb_books %}
+        </tr>
+    {% endfor %}
+</table>
+{% endif %}
+Nbr Authors = {{ tabAuthors|length }} <br>
+Nb Books Total = {{ sum }}
+
+

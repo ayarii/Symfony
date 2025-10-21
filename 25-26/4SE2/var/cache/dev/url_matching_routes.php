@@ -17,7 +17,6 @@ return [
         '/author' => [[['_route' => 'app_author', '_controller' => 'App\\Controller\\AuthorController::index'], null, null, null, false, false, null]],
         '/msg1' => [[['_route' => 'msg1_author', '_controller' => 'App\\Controller\\AuthorController::msg1'], null, null, null, false, false, null]],
         '/goToIndex' => [[['_route' => 'gotoindex_author', '_controller' => 'App\\Controller\\AuthorController::goToIndex'], null, null, null, false, false, null]],
-        '/listAuthor' => [[['_route' => 'list_author', '_controller' => 'App\\Controller\\AuthorController::listAuthors'], null, null, null, false, false, null]],
         '/home' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
@@ -44,6 +43,7 @@ return [
                     .'|2/([^/]++)(*:219)'
                     .'|3/([^/]++)(*:237)'
                 .')'
+                .'|/showAuthor/([^/]++)(*:266)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -56,8 +56,9 @@ return [
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         219 => [[['_route' => 'msg2_author', '_controller' => 'App\\Controller\\AuthorController::msg2'], ['var'], null, null, false, true, null]],
-        237 => [
-            [['_route' => 'msg3_author', '_controller' => 'App\\Controller\\AuthorController::msg3'], ['var'], null, null, false, true, null],
+        237 => [[['_route' => 'msg3_author', '_controller' => 'App\\Controller\\AuthorController::msg3'], ['var'], null, null, false, true, null]],
+        266 => [
+            [['_route' => 'list_author', '_controller' => 'App\\Controller\\AuthorController::showDetails'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

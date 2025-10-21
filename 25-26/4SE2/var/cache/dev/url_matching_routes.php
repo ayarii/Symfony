@@ -17,6 +17,7 @@ return [
         '/author' => [[['_route' => 'app_author', '_controller' => 'App\\Controller\\AuthorController::index'], null, null, null, false, false, null]],
         '/msg1' => [[['_route' => 'msg1_author', '_controller' => 'App\\Controller\\AuthorController::msg1'], null, null, null, false, false, null]],
         '/goToIndex' => [[['_route' => 'gotoindex_author', '_controller' => 'App\\Controller\\AuthorController::goToIndex'], null, null, null, false, false, null]],
+        '/list' => [[['_route' => 'lists_author', '_controller' => 'App\\Controller\\AuthorController::list'], null, null, null, false, false, null]],
         '/home' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList

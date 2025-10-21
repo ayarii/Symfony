@@ -23,6 +23,7 @@ return [
     'msg3_author' => [['var'], ['_controller' => 'App\\Controller\\AuthorController::msg3'], [], [['variable', '/', '[^/]++', 'var', true], ['text', '/msg3']], [], [], []],
     'gotoindex_author' => [[], ['_controller' => 'App\\Controller\\AuthorController::goToIndex'], [], [['text', '/goToIndex']], [], [], []],
     'list_author' => [['id'], ['_controller' => 'App\\Controller\\AuthorController::showDetails'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/showAuthor']], [], [], []],
+    'lists_author' => [[], ['_controller' => 'App\\Controller\\AuthorController::list'], [], [['text', '/list']], [], [], []],
     'app_home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/home']], [], [], []],
     'App\Controller\AuthorController::index' => [[], ['_controller' => 'App\\Controller\\AuthorController::index'], [], [['text', '/author']], [], [], []],
     'App\Controller\AuthorController::msg1' => [[], ['_controller' => 'App\\Controller\\AuthorController::msg1'], [], [['text', '/msg1']], [], [], []],
@@ -30,5 +31,6 @@ return [
     'App\Controller\AuthorController::msg3' => [['var'], ['_controller' => 'App\\Controller\\AuthorController::msg3'], [], [['variable', '/', '[^/]++', 'var', true], ['text', '/msg3']], [], [], []],
     'App\Controller\AuthorController::goToIndex' => [[], ['_controller' => 'App\\Controller\\AuthorController::goToIndex'], [], [['text', '/goToIndex']], [], [], []],
     'App\Controller\AuthorController::listAuthors' => [['id'], ['_controller' => 'App\\Controller\\AuthorController::showDetails'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/showAuthor']], [], [], []],
+    'App\Controller\AuthorController::list' => [[], ['_controller' => 'App\\Controller\\AuthorController::list'], [], [['text', '/list']], [], [], []],
     'App\Controller\HomeController::index' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/home']], [], [], []],
 ];

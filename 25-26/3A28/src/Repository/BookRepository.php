@@ -40,4 +40,56 @@ class BookRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+    public function searchBookByTitle($title)
+    {
+        $qb=  $this->createQueryBuilder('b')
+            ->andWhere('b.title LIKE :x')
+            ->setParameter('x', '%' . $title . '%');
+             return   $qb->getQuery()
+            ->getResult();
+    }
+
+    public function showAllBooksByAuthor(int $authorId)
+    {
+        return $this->createQueryBuilder('b')
+            ->join('b.author', 'a')
+            ->andWhere('a.id = :y')
+            ->setParameter('y', $authorId)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function xxx()
+    {
+        return $this->createQueryBuilder('b')
+            ->join('b.author', 'a')
+            ->where('b.publicationDate > :year')
+            ->andWhere('a.nbrBooks > :minBooks')
+            ->setParameter('year', 2023-01-01)
+            ->setParameter('minBooks', 10)
+            ->orderBy('b.publicationDate', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+   //dql
+    function NbBookCategory(){
+        $em=$this->getEntityManager();
+        return $em->createQuery('select count(b) from App\Entity\Book b WHERE b.category=:x')
+            ->setParameter('x','Romance')->getSingleScalarResult();
+    }
+
+   //dql
+    public function findBooksBetweenDatesDirect(): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $dql = "SELECT b FROM App\Entity\Book b
+        WHERE b.publicationDate BETWEEN :start AND :end
+        ORDER BY b.publicationDate ASC";
+        $query = $entityManager->createQuery($dql)
+            ->setParameter('start', '2014-01-01')
+            ->setParameter('end', '2018-12-31');
+        return $query->getResult();
+    }
 }

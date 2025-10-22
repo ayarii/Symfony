@@ -27,6 +27,7 @@ class Book
     private ?\DateTime $publicationDate = null;
 
     #[ORM\ManyToOne(inversedBy: 'books')]
+    #[ORM\JoinColumn(onDelete: 'CASCADE')]
     private ?Author $author = null;
 
     public function getId(): ?int

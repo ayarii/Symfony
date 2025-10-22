@@ -16,4 +16,25 @@
     </tr>
 {% endfor %}
 </table>
+
+<h2>SrT By Email</h2>
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Username</td>
+        <td>NBrBook</td>
+        <td>Action</td>
+    </tr>
+    {% for i in tabEmail %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.username }}</td>
+            <td>{{ i.nbrBooks }}</td>
+            <td><a href="{{ path('update_auth',{'id':i.id}) }}">update</a>
+                <a href="{{ path('show_auth',{'id':i.id}) }}">show</a>
+                <a href="{{ path('remove_auth',{'id':i.id}) }}">remove</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
 <a href="{{ path('addForm_auth') }}">Add new Author</a>

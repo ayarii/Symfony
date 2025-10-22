@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Author;
 use App\Form\AuthorType;
 use App\Repository\AuthorRepository;
+use App\Service\BookManagerService;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -108,6 +109,15 @@ final class AuthorController extends AbstractController
         $em->flush();
         return  $this->redirectToRoute("list_authors");
 
+    }
+
+    #[Route('/bestAuthor', name: 'best')]
+
+    public function bestAuthor(BookManagerService $service)
+    {
+        $bestAuthors= $service->bestAuthors(3);
+
+        var_dump($bestAuthors).die();
     }
 
 }

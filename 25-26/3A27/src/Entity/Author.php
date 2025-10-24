@@ -15,20 +15,17 @@ class Author
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 100)]
     private ?string $username = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $email = null;
+    #[ORM\Column]
+    private ?int $nbrBooks = null;
 
     /**
      * @var Collection<int, Book>
      */
     #[ORM\OneToMany(targetEntity: Book::class, mappedBy: 'author')]
     private Collection $books;
-
-    #[ORM\Column]
-    private ?int $nbrBooks = null;
 
     public function __construct()
     {
@@ -52,14 +49,14 @@ class Author
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getNbrBooks(): ?int
     {
-        return $this->email;
+        return $this->nbrBooks;
     }
 
-    public function setEmail(string $email): static
+    public function setNbrBooks(int $nbrBooks): static
     {
-        $this->email = $email;
+        $this->nbrBooks = $nbrBooks;
 
         return $this;
     }
@@ -97,17 +94,5 @@ class Author
     public function __toString()
     {
         return(string)$this->getUsername();
-    }
-
-    public function getNbrBooks(): ?int
-    {
-        return $this->nbrBooks;
-    }
-
-    public function setNbrBooks(int $nbrBooks): static
-    {
-        $this->nbrBooks = $nbrBooks;
-
-        return $this;
     }
 }

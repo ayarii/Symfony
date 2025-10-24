@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\BookRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
@@ -13,19 +14,21 @@ class Book
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 255)]
     private ?string $title = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $category = null;
 
     #[ORM\Column]
     private ?bool $published = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $publishedAt = null;
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTime $publicationDate = null;
 
     #[ORM\ManyToOne(inversedBy: 'books')]
     #[ORM\JoinColumn(onDelete: 'CASCADE')]
     private ?Author $author = null;
-
 
     public function getId(): ?int
     {
@@ -44,6 +47,18 @@ class Book
         return $this;
     }
 
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(string $category): static
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
     public function isPublished(): ?bool
     {
         return $this->published;
@@ -56,14 +71,14 @@ class Book
         return $this;
     }
 
-    public function getPublishedAt(): ?\DateTimeImmutable
+    public function getPublicationDate(): ?\DateTime
     {
-        return $this->publishedAt;
+        return $this->publicationDate;
     }
 
-    public function setPublishedAt(\DateTimeImmutable $publishedAt): static
+    public function setPublicationDate(\DateTime $publicationDate): static
     {
-        $this->publishedAt = $publishedAt;
+        $this->publicationDate = $publicationDate;
 
         return $this;
     }
@@ -79,5 +94,6 @@ class Book
 
         return $this;
     }
+
 
 }

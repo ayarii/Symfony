@@ -6,6 +6,7 @@ use App\Entity\Author;
 use App\Entity\Book;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,17 +17,22 @@ class BookType extends AbstractType
     {
         $builder
             ->add('title')
-          //  ->add('published')
-            ->add('publishedAt', null, [
-                'widget' => 'single_text',
+            ->add('category', ChoiceType::class, [
+                'choices' => [
+                    'Science' => 'science',
+                    'Fiction' => 'fiction',
+                    'Histoire' => 'histoire',
+                    'Philosophie' => 'philosophie',
+                ],
             ])
+            ->add('published')
+            ->add('publicationDate')
             /*->add('author', EntityType::class, [
                 'class' => Author::class,
-                'choice_label' => 'id',
+                'choice_label' => 'username',
             ])*/
-            ->add('author')
-            ->add("submit", SubmitType::class
-            )
+                ->add('author')
+            ->add('submit',SubmitType::class)
         ;
     }
 

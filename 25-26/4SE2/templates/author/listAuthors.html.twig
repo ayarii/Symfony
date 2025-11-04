@@ -5,13 +5,18 @@
     <tr>
         <th>Id</th>
         <th>NbBooks</th>
+        <th>Userename</th>
         <th>Action</th>
     </tr>
     {% for i in tabAuthors %}
         <tr>
             <td>{{ i.id }}</td>
             <td>{{ i.nbrBooks }}</td>
-            <td><a href="#">Show +</a></td>
+            <td>{{ i.username }}</td>
+            <td><a href="#">Show +</a>
+                <a href="{{ path('update_author',{'id':i.id}) }}">Update</a>
+                <a href="{{ path('remove_author',{'id':i.id}) }}">Remove</a>
+            </td>
 
         </tr>
     {% endfor %}

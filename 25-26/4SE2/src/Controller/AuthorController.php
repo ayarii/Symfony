@@ -2,8 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Author;
+use App\Form\AuthorType;
 use App\Repository\AuthorRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -85,4 +89,61 @@ final class AuthorController extends AbstractController
             ["tabAuthors"=>$authors]);
     }
 
+    #[Route('/addAuthor', name: 'add_author')]
+    public function add(ManagerRegistry $doctrine)
+    {
+        $author = new Author();
+        $author->setUsername("asmayari");
+        $author->setNbrBooks(
+            10);
+        $em= $doctrine->getManager();
+        $em->persist($author);
+        $em->flush();
+        return $this->redirectToRoute("lists_author");
+    }
+
+
+    #[Route('/addAuthorForm', name: 'addForm_author')]
+    public function addWithForm(Request $request,ManagerRegistry $doctrine)
+    {
+        $author = new Author();
+        //$author->setUsername("asmayari");
+       // $author->setNbrBooks(10);
+        $form= $this->createForm(AuthorType::class,$author);
+        $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $em= $doctrine->getManager();
+          $em->persist($author);
+          $em->flush();
+          return $this->redirectToRoute("lists_author");
+        }
+        return $this->render("author/add.html.twig",
+        array("formAuthor"=>$form));
+    }
+
+    #[Route('/update/{id}', name: 'update_author')]
+    public function update($id,AuthorRepository $repository,Request $request,ManagerRegistry $doctrine)
+    {
+        $author = $repository->find($id);
+        $form= $this->createForm(AuthorType::class,$author);
+        $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $em= $doctrine->getManager();
+            $em->flush();
+            return $this->redirectToRoute("lists_author");
+        }
+        return $this->render("author/update.html.twig",
+            array("formAuthor"=>$form));
+    }
+
+    #[Route('/remove/{id}', name: 'remove_author')]
+
+    public function deleteAuthor(ManagerRegistry $doctrine,$id,AuthorRepository $repository)
+    {
+        $author = $repository->find($id);
+        $em= $doctrine->getManager();
+        $em->remove($author);
+        $em->flush();
+        return $this->redirectToRoute("lists_author");
+    }
 }

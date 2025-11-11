@@ -20,6 +20,8 @@ return [
         '/list' => [[['_route' => 'lists_author', '_controller' => 'App\\Controller\\AuthorController::list'], null, null, null, false, false, null]],
         '/addAuthor' => [[['_route' => 'add_author', '_controller' => 'App\\Controller\\AuthorController::add'], null, null, null, false, false, null]],
         '/addAuthorForm' => [[['_route' => 'addForm_author', '_controller' => 'App\\Controller\\AuthorController::addWithForm'], null, null, null, false, false, null]],
+        '/book' => [[['_route' => 'app_book', '_controller' => 'App\\Controller\\BookController::index'], null, null, null, false, false, null]],
+        '/addBook' => [[['_route' => 'add_book', '_controller' => 'App\\Controller\\BookController::addBook'], null, null, null, false, false, null]],
         '/home' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList

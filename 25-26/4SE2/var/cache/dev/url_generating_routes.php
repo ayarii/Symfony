@@ -28,6 +28,8 @@ return [
     'addForm_author' => [[], ['_controller' => 'App\\Controller\\AuthorController::addWithForm'], [], [['text', '/addAuthorForm']], [], [], []],
     'update_author' => [['id'], ['_controller' => 'App\\Controller\\AuthorController::update'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/update']], [], [], []],
     'remove_author' => [['id'], ['_controller' => 'App\\Controller\\AuthorController::deleteAuthor'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/remove']], [], [], []],
+    'app_book' => [[], ['_controller' => 'App\\Controller\\BookController::index'], [], [['text', '/book']], [], [], []],
+    'add_book' => [[], ['_controller' => 'App\\Controller\\BookController::addBook'], [], [['text', '/addBook']], [], [], []],
     'app_home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/home']], [], [], []],
     'App\Controller\AuthorController::index' => [[], ['_controller' => 'App\\Controller\\AuthorController::index'], [], [['text', '/author']], [], [], []],
     'App\Controller\AuthorController::msg1' => [[], ['_controller' => 'App\\Controller\\AuthorController::msg1'], [], [['text', '/msg1']], [], [], []],
@@ -40,5 +42,7 @@ return [
     'App\Controller\AuthorController::addWithForm' => [[], ['_controller' => 'App\\Controller\\AuthorController::addWithForm'], [], [['text', '/addAuthorForm']], [], [], []],
     'App\Controller\AuthorController::update' => [['id'], ['_controller' => 'App\\Controller\\AuthorController::update'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/update']], [], [], []],
     'App\Controller\AuthorController::deleteAuthor' => [['id'], ['_controller' => 'App\\Controller\\AuthorController::deleteAuthor'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/remove']], [], [], []],
+    'App\Controller\BookController::index' => [[], ['_controller' => 'App\\Controller\\BookController::index'], [], [['text', '/book']], [], [], []],
+    'App\Controller\BookController::addBook' => [[], ['_controller' => 'App\\Controller\\BookController::addBook'], [], [['text', '/addBook']], [], [], []],
     'App\Controller\HomeController::index' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/home']], [], [], []],
 ];

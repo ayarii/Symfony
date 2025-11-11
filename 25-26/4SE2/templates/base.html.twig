@@ -1,17 +1,105 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<html lang="en">
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>{% block title %} {% endblock %}</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="img/favicon.png" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libraries/icofont/icofont.min.css" rel="stylesheet">
+    <link href="libraries/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="libraries/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="libraries/venobox/venobox.css" rel="stylesheet">
+    <link href="libraries/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+
+</head>
+
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+        <h1 class="logo"><a href="index.html">Esprit</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="active"><a href="about.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav><!-- .nav-menu -->
+
+        <div class="header-social-links">
+            <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+            <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+            <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+        </div>
+
+    </div>
+
+</header><!-- End Header -->
+
+<main id="main">
+   {% block body %}
+
+    {% endblock %}
+</main>
+<!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Esprit</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
+</footer><!-- End  Footer -->
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+
+<!-- Libraries JS Files -->
+<script src="libraries/jquery/jquery.min.js"></script>
+<script src="libraries/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="libraries/jquery.easing/jquery.easing.min.js"></script>
+<script src="libraries/php-email-form/validate.js"></script>
+<script src="libraries/waypoints/jquery.waypoints.min.js"></script>
+<script src="libraries/counterup/counterup.min.js"></script>
+<script src="libraries/owl.carousel/owl.carousel.min.js"></script>
+<script src="libraries/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="libraries/venobox/venobox.min.js"></script>
+<script src="libraries/aos/aos.js"></script>
+
+<!-- Template Main JS File -->
+<script src="{{ asset('js/main.js')  }}"></script>
+
+</body>
+
 </html>

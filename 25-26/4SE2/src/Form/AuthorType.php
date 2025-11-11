@@ -14,6 +14,7 @@ class AuthorType extends AbstractType
     {
         $builder
             ->add('nbrBooks')
+            ->add('name')
             ->add("submit",SubmitType::class)
         ;
     }

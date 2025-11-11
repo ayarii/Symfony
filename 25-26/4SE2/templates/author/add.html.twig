@@ -1,1 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add New Author{% endblock %}
+
+{% block body %}
+    <h1>Add New Author</h1>
 {{ form(formAuthor) }}
+   {# {{ form_start(formAuthor) }}
+    {{ form_widget(formAuthor) }}
+    {{ form_end(formAuthor) }}#}
+{% endblock %}

@@ -33,9 +33,6 @@ class __TwigTemplate_3273f28cbbe85546c890e1bbd841f00b extends Template
 
         $this->blocks = [
             'title' => [$this, 'block_title'],
-            'stylesheets' => [$this, 'block_stylesheets'],
-            'javascripts' => [$this, 'block_javascripts'],
-            'importmap' => [$this, 'block_importmap'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -51,32 +48,120 @@ class __TwigTemplate_3273f28cbbe85546c890e1bbd841f00b extends Template
 
         // line 1
         yield "<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset=\"UTF-8\">
-        <title>";
-        // line 5
+<html lang=\"en\">
+
+<head>
+    <meta charset=\"utf-8\">
+    <meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">
+
+    <title>";
+        // line 8
         yield from $this->unwrap()->yieldBlock('title', $context, $blocks);
         yield "</title>
-        <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>\">
-        ";
-        // line 7
-        yield from $this->unwrap()->yieldBlock('stylesheets', $context, $blocks);
-        // line 9
-        yield "
-        ";
-        // line 10
-        yield from $this->unwrap()->yieldBlock('javascripts', $context, $blocks);
-        // line 13
-        yield "    </head>
-    <body>
-        ";
-        // line 15
+    <meta content=\"\" name=\"description\">
+    <meta content=\"\" name=\"keywords\">
+
+    <!-- Favicons -->
+    <link href=\"img/favicon.png\" rel=\"icon\">
+    <link href=\"img/apple-touch-icon.png\" rel=\"apple-touch-icon\">
+
+    <!-- Google Fonts -->
+    <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i\" rel=\"stylesheet\">
+
+    <!-- Libraries CSS Files -->
+    <link href=\"libraries/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">
+    <link href=\"libraries/icofont/icofont.min.css\" rel=\"stylesheet\">
+    <link href=\"libraries/owl.carousel/assets/owl.carousel.min.css\" rel=\"stylesheet\">
+    <link href=\"libraries/boxicons/css/boxicons.min.css\" rel=\"stylesheet\">
+    <link href=\"libraries/venobox/venobox.css\" rel=\"stylesheet\">
+    <link href=\"libraries/aos/aos.css\" rel=\"stylesheet\">
+
+    <!-- Template Main CSS File -->
+    <link href=\"";
+        // line 28
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/style.css"), "html", null, true);
+        yield "\" rel=\"stylesheet\">
+
+
+</head>
+
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id=\"header\" class=\"fixed-top\">
+    <div class=\"container-fluid d-flex justify-content-between align-items-center\">
+
+        <h1 class=\"logo\"><a href=\"index.html\">Esprit</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href=\"index.html\" class=\"logo\"><img src=\"assets/img/logo.png\" alt=\"\" class=\"img-fluid\"></a>-->
+
+        <nav class=\"nav-menu d-none d-lg-block\">
+            <ul>
+                <li><a href=\"index.html\">Home</a></li>
+                <li class=\"active\"><a href=\"about.html\">About</a></li>
+                <li><a href=\"resume.html\">Resume</a></li>
+                <li><a href=\"services.html\">Services</a></li>
+                <li><a href=\"portfolio.html\">Portfolio</a></li>
+                <li><a href=\"contact.html\">Contact</a></li>
+            </ul>
+        </nav><!-- .nav-menu -->
+
+        <div class=\"header-social-links\">
+            <a href=\"#\" class=\"twitter\"><i class=\"icofont-twitter\"></i></a>
+            <a href=\"#\" class=\"facebook\"><i class=\"icofont-facebook\"></i></a>
+            <a href=\"#\" class=\"instagram\"><i class=\"icofont-instagram\"></i></a>
+            <a href=\"#\" class=\"linkedin\"><i class=\"icofont-linkedin\"></i></i></a>
+        </div>
+
+    </div>
+
+</header><!-- End Header -->
+
+<main id=\"main\">
+   ";
+        // line 67
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 16
-        yield "    </body>
-</html>
-";
+        // line 70
+        yield "</main>
+<!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id=\"footer\">
+    <div class=\"container\">
+        <div class=\"copyright\">
+            &copy; Copyright <strong><span>Esprit</span></strong>. All Rights Reserved
+        </div>
+        <div class=\"credits\">
+            Designed by <a href=\"https://bootstrapmade.com/\">BootstrapMade</a>
+        </div>
+    </div>
+</footer><!-- End  Footer -->
+
+<div id=\"preloader\"></div>
+<a href=\"#\" class=\"back-to-top\"><i class=\"bx bx-up-arrow-alt\"></i></a>
+
+<!-- Libraries JS Files -->
+<script src=\"libraries/jquery/jquery.min.js\"></script>
+<script src=\"libraries/bootstrap/js/bootstrap.bundle.min.js\"></script>
+<script src=\"libraries/jquery.easing/jquery.easing.min.js\"></script>
+<script src=\"libraries/php-email-form/validate.js\"></script>
+<script src=\"libraries/waypoints/jquery.waypoints.min.js\"></script>
+<script src=\"libraries/counterup/counterup.min.js\"></script>
+<script src=\"libraries/owl.carousel/owl.carousel.min.js\"></script>
+<script src=\"libraries/isotope-layout/isotope.pkgd.min.js\"></script>
+<script src=\"libraries/venobox/venobox.min.js\"></script>
+<script src=\"libraries/aos/aos.js\"></script>
+
+<!-- Template Main JS File -->
+<script src=\"";
+        // line 101
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/main.js"), "html", null, true);
+        yield "\"></script>
+
+</body>
+
+</html>";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
@@ -86,7 +171,7 @@ class __TwigTemplate_3273f28cbbe85546c890e1bbd841f00b extends Template
         yield from [];
     }
 
-    // line 5
+    // line 8
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -99,7 +184,7 @@ class __TwigTemplate_3273f28cbbe85546c890e1bbd841f00b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Welcome!";
+        yield " ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -109,81 +194,7 @@ class __TwigTemplate_3273f28cbbe85546c890e1bbd841f00b extends Template
         yield from [];
     }
 
-    // line 7
-    /**
-     * @return iterable<null|scalar|\Stringable>
-     */
-    public function block_stylesheets(array $context, array $blocks = []): iterable
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        // line 8
-        yield "        ";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-        yield from [];
-    }
-
-    // line 10
-    /**
-     * @return iterable<null|scalar|\Stringable>
-     */
-    public function block_javascripts(array $context, array $blocks = []): iterable
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
-
-        // line 11
-        yield "            ";
-        yield from $this->unwrap()->yieldBlock('importmap', $context, $blocks);
-        // line 12
-        yield "        ";
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-        yield from [];
-    }
-
-    // line 11
-    /**
-     * @return iterable<null|scalar|\Stringable>
-     */
-    public function block_importmap(array $context, array $blocks = []): iterable
-    {
-        $macros = $this->macros;
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "importmap"));
-
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "importmap"));
-
-        yield $this->env->getRuntime('Symfony\Bridge\Twig\Extension\ImportMapRuntime')->importmap("app");
-        
-        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
-
-        
-        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
-
-        yield from [];
-    }
-
-    // line 15
+    // line 67
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -196,6 +207,9 @@ class __TwigTemplate_3273f28cbbe85546c890e1bbd841f00b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
+        // line 68
+        yield "
+    ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -216,30 +230,125 @@ class __TwigTemplate_3273f28cbbe85546c890e1bbd841f00b extends Template
     /**
      * @codeCoverageIgnore
      */
+    public function isTraitable(): bool
+    {
+        return false;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
     public function getDebugInfo(): array
     {
-        return array (  187 => 15,  164 => 11,  153 => 12,  150 => 11,  137 => 10,  126 => 8,  113 => 7,  90 => 5,  77 => 16,  75 => 15,  71 => 13,  69 => 10,  66 => 9,  64 => 7,  59 => 5,  53 => 1,);
+        return array (  211 => 68,  198 => 67,  175 => 8,  159 => 101,  126 => 70,  124 => 67,  82 => 28,  59 => 8,  50 => 1,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset=\"UTF-8\">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>\">
-        {% block stylesheets %}
-        {% endblock %}
+<html lang=\"en\">
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-</html>
-", "base.html.twig", "C:\\xampp\\htdocs\\Symfony\\25-26\\3A27\\templates\\base.html.twig");
+<head>
+    <meta charset=\"utf-8\">
+    <meta content=\"width=device-width, initial-scale=1.0\" name=\"viewport\">
+
+    <title>{% block title %} {% endblock %}</title>
+    <meta content=\"\" name=\"description\">
+    <meta content=\"\" name=\"keywords\">
+
+    <!-- Favicons -->
+    <link href=\"img/favicon.png\" rel=\"icon\">
+    <link href=\"img/apple-touch-icon.png\" rel=\"apple-touch-icon\">
+
+    <!-- Google Fonts -->
+    <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i\" rel=\"stylesheet\">
+
+    <!-- Libraries CSS Files -->
+    <link href=\"libraries/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\">
+    <link href=\"libraries/icofont/icofont.min.css\" rel=\"stylesheet\">
+    <link href=\"libraries/owl.carousel/assets/owl.carousel.min.css\" rel=\"stylesheet\">
+    <link href=\"libraries/boxicons/css/boxicons.min.css\" rel=\"stylesheet\">
+    <link href=\"libraries/venobox/venobox.css\" rel=\"stylesheet\">
+    <link href=\"libraries/aos/aos.css\" rel=\"stylesheet\">
+
+    <!-- Template Main CSS File -->
+    <link href=\"{{ asset('css/style.css') }}\" rel=\"stylesheet\">
+
+
+</head>
+
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id=\"header\" class=\"fixed-top\">
+    <div class=\"container-fluid d-flex justify-content-between align-items-center\">
+
+        <h1 class=\"logo\"><a href=\"index.html\">Esprit</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href=\"index.html\" class=\"logo\"><img src=\"assets/img/logo.png\" alt=\"\" class=\"img-fluid\"></a>-->
+
+        <nav class=\"nav-menu d-none d-lg-block\">
+            <ul>
+                <li><a href=\"index.html\">Home</a></li>
+                <li class=\"active\"><a href=\"about.html\">About</a></li>
+                <li><a href=\"resume.html\">Resume</a></li>
+                <li><a href=\"services.html\">Services</a></li>
+                <li><a href=\"portfolio.html\">Portfolio</a></li>
+                <li><a href=\"contact.html\">Contact</a></li>
+            </ul>
+        </nav><!-- .nav-menu -->
+
+        <div class=\"header-social-links\">
+            <a href=\"#\" class=\"twitter\"><i class=\"icofont-twitter\"></i></a>
+            <a href=\"#\" class=\"facebook\"><i class=\"icofont-facebook\"></i></a>
+            <a href=\"#\" class=\"instagram\"><i class=\"icofont-instagram\"></i></a>
+            <a href=\"#\" class=\"linkedin\"><i class=\"icofont-linkedin\"></i></i></a>
+        </div>
+
+    </div>
+
+</header><!-- End Header -->
+
+<main id=\"main\">
+   {% block body %}
+
+    {% endblock %}
+</main>
+<!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id=\"footer\">
+    <div class=\"container\">
+        <div class=\"copyright\">
+            &copy; Copyright <strong><span>Esprit</span></strong>. All Rights Reserved
+        </div>
+        <div class=\"credits\">
+            Designed by <a href=\"https://bootstrapmade.com/\">BootstrapMade</a>
+        </div>
+    </div>
+</footer><!-- End  Footer -->
+
+<div id=\"preloader\"></div>
+<a href=\"#\" class=\"back-to-top\"><i class=\"bx bx-up-arrow-alt\"></i></a>
+
+<!-- Libraries JS Files -->
+<script src=\"libraries/jquery/jquery.min.js\"></script>
+<script src=\"libraries/bootstrap/js/bootstrap.bundle.min.js\"></script>
+<script src=\"libraries/jquery.easing/jquery.easing.min.js\"></script>
+<script src=\"libraries/php-email-form/validate.js\"></script>
+<script src=\"libraries/waypoints/jquery.waypoints.min.js\"></script>
+<script src=\"libraries/counterup/counterup.min.js\"></script>
+<script src=\"libraries/owl.carousel/owl.carousel.min.js\"></script>
+<script src=\"libraries/isotope-layout/isotope.pkgd.min.js\"></script>
+<script src=\"libraries/venobox/venobox.min.js\"></script>
+<script src=\"libraries/aos/aos.js\"></script>
+
+<!-- Template Main JS File -->
+<script src=\"{{ asset('js/main.js')  }}\"></script>
+
+</body>
+
+</html>", "base.html.twig", "C:\\xampp\\htdocs\\Symfony\\25-26\\4SE2\\templates\\base.html.twig");
     }
 }

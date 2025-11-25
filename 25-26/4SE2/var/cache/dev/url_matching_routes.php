@@ -48,9 +48,12 @@ return [
                     .'|2/([^/]++)(*:219)'
                     .'|3/([^/]++)(*:237)'
                 .')'
-                .'|/showAuthor/([^/]++)(*:266)'
-                .'|/update/([^/]++)(*:290)'
-                .'|/remove/([^/]++)(*:314)'
+                .'|/show(?'
+                    .'|Author/([^/]++)(*:269)'
+                    .'|BooksByAuthor/([^/]++)(*:299)'
+                .')'
+                .'|/update/([^/]++)(*:324)'
+                .'|/remove/([^/]++)(*:348)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -64,9 +67,10 @@ return [
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         219 => [[['_route' => 'msg2_author', '_controller' => 'App\\Controller\\AuthorController::msg2'], ['var'], null, null, false, true, null]],
         237 => [[['_route' => 'msg3_author', '_controller' => 'App\\Controller\\AuthorController::msg3'], ['var'], null, null, false, true, null]],
-        266 => [[['_route' => 'list_author', '_controller' => 'App\\Controller\\AuthorController::showDetails'], ['id'], null, null, false, true, null]],
-        290 => [[['_route' => 'update_author', '_controller' => 'App\\Controller\\AuthorController::update'], ['id'], null, null, false, true, null]],
-        314 => [
+        269 => [[['_route' => 'list_author', '_controller' => 'App\\Controller\\AuthorController::showDetails'], ['id'], null, null, false, true, null]],
+        299 => [[['_route' => 'showBooks_author', '_controller' => 'App\\Controller\\AuthorController::listBooksByAuthor'], ['id'], null, null, false, true, null]],
+        324 => [[['_route' => 'update_author', '_controller' => 'App\\Controller\\AuthorController::update'], ['id'], null, null, false, true, null]],
+        348 => [
             [['_route' => 'remove_author', '_controller' => 'App\\Controller\\AuthorController::deleteAuthor'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

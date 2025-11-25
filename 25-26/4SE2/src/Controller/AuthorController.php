@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Author;
 use App\Form\AuthorType;
 use App\Repository\AuthorRepository;
+use App\Repository\BookRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -85,15 +86,17 @@ final class AuthorController extends AbstractController
     public function list(AuthorRepository $repository)
     {
         $authors= $repository->findAll();
+        $authorsOrderByName= $repository->listAuthorByName();
         return $this->render("author/listAuthors.html.twig",
-            ["tabAuthors"=>$authors]);
+            ["tabAuthors"=>$authors,
+             "tabAuthorsOrderByName"=>$authorsOrderByName]);
     }
 
     #[Route('/addAuthor', name: 'add_author')]
     public function add(ManagerRegistry $doctrine)
     {
         $author = new Author();
-        $author->setUsername("asmayari");
+        $author->setName("asmayari");
         $author->setNbrBooks(
             10);
         $em= $doctrine->getManager();
@@ -145,5 +148,14 @@ final class AuthorController extends AbstractController
         $em->remove($author);
         $em->flush();
         return $this->redirectToRoute("lists_author");
+    }
+
+    #[Route('/showBooksByAuthor/{id}', name: 'showBooks_author')]
+
+    public function listBooksByAuthor($id,BookRepository $repository)
+    {
+      $books= $repository->showAllBooksByAuthor($id);
+      return $this->render("author/listBookByAuthors.html.twig",
+          ["tab"=>$books]);
     }
 }

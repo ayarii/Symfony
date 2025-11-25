@@ -414,7 +414,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.W2PsgLk"/>
+      <argument type="service" id=".service_locator.YHvyrF8"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -3305,7 +3305,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.W2PsgLk"/>
+      <argument type="service" id=".service_locator.YHvyrF8"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <tag name="kernel.reset" method="reset"/>
@@ -7526,13 +7526,20 @@
         <argument key="repository" type="service_closure" id="App\Repository\AuthorRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.W2PsgLk" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.CJQyp.k" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repository" type="service_closure" id="App\Repository\BookRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.YHvyrF8" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AuthorController::add" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Controller\AuthorController::addWithForm" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Controller\AuthorController::deleteAuthor" type="service_closure" id=".service_locator.XMFAs4P"/>
         <argument key="App\Controller\AuthorController::list" type="service_closure" id=".service_locator.XzfvUL_"/>
+        <argument key="App\Controller\AuthorController::listBooksByAuthor" type="service_closure" id=".service_locator.CJQyp.k"/>
         <argument key="App\Controller\AuthorController::update" type="service_closure" id=".service_locator.XMFAs4P"/>
         <argument key="App\Controller\BookController::addBook" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
@@ -7543,6 +7550,7 @@
         <argument key="App\Controller\AuthorController:addWithForm" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="App\Controller\AuthorController:deleteAuthor" type="service_closure" id=".service_locator.XMFAs4P"/>
         <argument key="App\Controller\AuthorController:list" type="service_closure" id=".service_locator.XzfvUL_"/>
+        <argument key="App\Controller\AuthorController:listBooksByAuthor" type="service_closure" id=".service_locator.CJQyp.k"/>
         <argument key="App\Controller\AuthorController:update" type="service_closure" id=".service_locator.XMFAs4P"/>
         <argument key="App\Controller\BookController:addBook" type="service_closure" id=".service_locator.o6sN0hZ"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
@@ -9744,7 +9752,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.w7.f4fT" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.W2PsgLk"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.YHvyrF8"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -9769,7 +9777,7 @@
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.bJ.4HC5" alias=".service_locator.w7.f4fT"/>
     <service id=".service_locator.DSRgfDm" alias=".service_locator.XMFAs4P"/>
-    <service id=".service_locator.K28e4ag" alias=".service_locator.W2PsgLk"/>
+    <service id=".service_locator.FBzSFCk" alias=".service_locator.YHvyrF8"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
     <service id=".service_locator.YnYgzS3" alias=".service_locator.pJAVhB."/>
     <service id=".service_locator.XtmiKbi" alias=".service_locator.MfxSDRP"/>
@@ -9798,6 +9806,7 @@
     <service id=".service_locator.HATPfqJ" alias=".service_locator.XzfvUL_"/>
     <service id=".service_locator.eQ296SW" alias=".service_locator.o6sN0hZ"/>
     <service id=".service_locator.RIFp2xc" alias=".service_locator.XMFAs4P"/>
+    <service id=".service_locator.cp7A7Pp" alias=".service_locator.CJQyp.k"/>
     <service id=".service_locator.Q1z.f9O" alias=".service_locator.O2p6Lk7"/>
     <service id=".service_locator.dGUCsbe" alias=".service_locator.oR77BOj"/>
     <service id=".service_locator._kIAbz1" alias=".service_locator.TpoC7U9"/>

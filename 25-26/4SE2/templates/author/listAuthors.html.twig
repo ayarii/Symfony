@@ -1,3 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block title %}List Authors{% endblock %}
+
+{% block body %}
+    <div style="padding: 50px">
+<h1 >List of Authors</h1>
 {% if tabAuthors is empty %}
 <h3>The table is empty</h3>
 {% else %}
@@ -12,16 +18,15 @@
         <tr>
             <td>{{ i.id }}</td>
             <td>{{ i.nbrBooks }}</td>
-            <td>{{ i.username }}</td>
+            <td>{{ i.name }}</td>
             <td><a href="#">Show +</a>
                 <a href="{{ path('update_author',{'id':i.id}) }}">Update</a>
                 <a href="{{ path('remove_author',{'id':i.id}) }}">Remove</a>
             </td>
-
         </tr>
     {% endfor %}
 </table>
 {% endif %}
 Nbr Authors = {{ tabAuthors|length }} <br>
-
-
+    </div>
+{% endblock %}

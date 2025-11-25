@@ -118,11 +118,12 @@ class __TwigTemplate_3273f28cbbe85546c890e1bbd841f00b extends Template
 
 </header><!-- End Header -->
 
-<main id=\"main\">
+<main id=\"main\" class=\"container\">
+    <div class=\"my-5 \"
    ";
-        // line 67
+        // line 68
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 70
+        // line 71
         yield "</main>
 <!-- End #main -->
 
@@ -155,7 +156,7 @@ class __TwigTemplate_3273f28cbbe85546c890e1bbd841f00b extends Template
 
 <!-- Template Main JS File -->
 <script src=\"";
-        // line 101
+        // line 102
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/main.js"), "html", null, true);
         yield "\"></script>
 
@@ -194,7 +195,7 @@ class __TwigTemplate_3273f28cbbe85546c890e1bbd841f00b extends Template
         yield from [];
     }
 
-    // line 67
+    // line 68
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -207,7 +208,7 @@ class __TwigTemplate_3273f28cbbe85546c890e1bbd841f00b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 68
+        // line 69
         yield "
     ";
         
@@ -240,7 +241,7 @@ class __TwigTemplate_3273f28cbbe85546c890e1bbd841f00b extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  211 => 68,  198 => 67,  175 => 8,  159 => 101,  126 => 70,  124 => 67,  82 => 28,  59 => 8,  50 => 1,);
+        return array (  212 => 69,  199 => 68,  176 => 8,  160 => 102,  127 => 71,  125 => 68,  82 => 28,  59 => 8,  50 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -310,7 +311,8 @@ class __TwigTemplate_3273f28cbbe85546c890e1bbd841f00b extends Template
 
 </header><!-- End Header -->
 
-<main id=\"main\">
+<main id=\"main\" class=\"container\">
+    <div class=\"my-5 \"
    {% block body %}
 
     {% endblock %}

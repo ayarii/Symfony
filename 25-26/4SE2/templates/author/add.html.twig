@@ -4,8 +4,17 @@
 
 {% block body %}
     <h1>Add New Author</h1>
-{{ form(formAuthor) }}
-   {# {{ form_start(formAuthor) }}
-    {{ form_widget(formAuthor) }}
-    {{ form_end(formAuthor) }}#}
+{#{{ form(formAuthor) }}#}
+
+    {{ form_start(formAuthor,{'attr': {'novalidate': 'novalidate'}} ) }}
+    {{ form_label(formAuthor.name,"Name") }}<br>
+    {{ form_widget(formAuthor.name) }}<br>
+    {{ form_errors(formAuthor.name) }}<br>
+
+    {{ form_label(formAuthor.name,"nbr des livres") }}<br>
+    {{ form_widget(formAuthor.nbrBooks) }}<br>
+    {{ form_errors(formAuthor.nbrBooks) }}<br>
+
+    {{ form_end(formAuthor) }}
+
 {% endblock %}

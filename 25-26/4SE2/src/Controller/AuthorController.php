@@ -111,7 +111,7 @@ final class AuthorController extends AbstractController
        // $author->setNbrBooks(10);
         $form= $this->createForm(AuthorType::class,$author);
         $form->handleRequest($request);
-        if($form->isSubmitted()){
+        if($form->isSubmitted() && $form->isValid()){
             $em= $doctrine->getManager();
           $em->persist($author);
           $em->flush();

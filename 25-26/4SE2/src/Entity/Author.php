@@ -6,7 +6,7 @@ use App\Repository\AuthorRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: AuthorRepository::class)]
 class Author
 {
@@ -16,6 +16,8 @@ class Author
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank( message :"le champs nbr de livre est obligatoire !")]
+    #[Assert\Positive (message: "Le nbr doit être >0")]
     private ?int $nbrBooks = null;
 
     /**
@@ -25,6 +27,8 @@ class Author
     private Collection $books;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank( message :"le nom est obligatoire !")]
+    #[Assert\Length( min:2,max:10)]
     private ?string $name = null;
 
     public function __construct()
